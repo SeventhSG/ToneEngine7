@@ -1,5 +1,13 @@
 # Tone Engine 7
 
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white">
+  <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-2.6-EE4C2C?logo=pytorch&logoColor=white">
+  <img alt="Status" src="https://img.shields.io/badge/status-experimental-eda100">
+  <img alt="License" src="https://img.shields.io/github/license/SeventhSG/ToneEngine7?color=2a78d6">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/SeventhSG/ToneEngine7">
+</p>
+
 > An open-source neural audio engine for understanding, modeling, and matching guitar tones.
 
 Tone Engine 7 is an experimental machine learning project built around one simple idea:
@@ -24,39 +32,18 @@ Tone Engine 7 treats that signal as data that a machine learning model can analy
 
 The long-term concept looks like this:
 
-```text
-                 Reference Guitar Audio
-                          |
-                          v
-                  Audio Preprocessing
-                          |
-                          v
-                    Audio Encoder
-                          |
-                          v
-                    Tone Embedding
-                          |
-                          v
-                 Initial Tone Parameters
-                          |
-                          v
-                 Virtual Signal Chain
-                          |
-                          v
-                    Generated Audio
-                          |
-                          v
-                  Audio Comparison
-                          |
-                          v
-                     Optimizer
-                          |
-                          v
-                  Improved Parameters
-                          |
-                          +------------------+
-                          |                  |
-                          +---- Repeat ------+
+```mermaid
+flowchart TD
+    A[Reference guitar audio] --> B[Audio preprocessing]
+    B --> C[Audio encoder]
+    C --> D[Tone embedding]
+    D --> E[Initial tone parameters]
+    E --> F[Virtual signal chain]
+    F --> G[Generated audio]
+    G --> H[Audio comparison]
+    H --> I[Optimizer]
+    I --> J[Improved parameters]
+    J -.repeat.-> F
 ```
 
 The system does not need to get the perfect tone on its first attempt. Instead, it can make a prediction, render that prediction, measure how different it is from the reference, adjust the parameters, and try again. This turns guitar tone matching into an optimization problem.
@@ -170,28 +157,29 @@ After training, it is tested on tones it has never seen before. If the model can
 
 Once the core system works, the same concept can be expanded.
 
-```text
-Single Amp ➔ Amp + Cabinet ➔ Amp + Cabinet + IR ➔ Amp + Pedals ➔ Complete Signal Chain ➔ Microphone Modeling ➔ Real Guitar Recordings ➔ Guitar Stem Extraction ➔ Full Song Analysis
+```mermaid
+flowchart LR
+    A[Single amp] --> B[Amp + cabinet]
+    B --> C[Amp + cabinet + IR]
+    C --> D[Amp + pedals]
+    D --> E[Complete signal chain]
+    E --> F[Microphone modeling]
+    F --> G[Real guitar recordings]
+    G --> H[Guitar stem extraction]
+    H --> I[Full song analysis]
 ```
 
 Eventually, the system could work toward something like:
 
-```text
-Song / Guitar Recording
-          ↓
-    Extract Guitar
-          ↓
-    Analyze Tone
-          ↓
- Identify Characteristics
-          ↓
- Generate Initial Settings
-          ↓
- Search Available Gear
-          ↓
- Optimize Signal Chain
-          ↓
-      Final Tone
+```mermaid
+flowchart TD
+    A[Song / guitar recording] --> B[Extract guitar]
+    B --> C[Analyze tone]
+    C --> D[Identify characteristics]
+    D --> E[Generate initial settings]
+    E --> F[Search available gear]
+    F --> G[Optimize signal chain]
+    G --> H[Final tone]
 ```
 
 The goal is not necessarily to identify the exact equipment originally used to record a tone. If the original recording used a specific amplifier that the user does not own, the useful answer may be a completely different signal chain that produces an extremely similar result.
@@ -204,21 +192,10 @@ In other words: **The goal is to reproduce the sound, not simply identify the eq
 
 Tone Engine 7 is not intended to replace language models. Instead, an eventual system could combine both technologies.
 
-```text
-                 LLM
-                  |
-        Context, Knowledge,
-        Gear Information
-                  |
-                  v
-           Tone Engine 7
-                  |
-        Audio Analysis,
-        Prediction,
-        Optimization
-                  |
-                  v
-             Final Tone
+```mermaid
+flowchart TD
+    A["LLM<br/>context, knowledge, gear information"] --> B["Tone Engine 7<br/>audio analysis, prediction, optimization"]
+    B --> C[Final tone]
 ```
 
 - **LLM:** Understands requests, artists, songs, equipment, signal chains, and natural language.
@@ -256,7 +233,56 @@ This project is still in its early stages. The architecture, models, datasets, a
 The first major milestone is simple:
 > Train a model that can analyze an unseen generated guitar tone, predict the parameters that created it, and reproduce that tone.
 
-**First milestone: proven on a single virtual amp.** A CNN trained on 10,000 synthetic gain/bass/mid/treble/presence/master examples recovers unseen test parameters with a mean absolute error of about 0.8 on a 0-10 scale, and the reconstructed audio (rendered from the predicted parameters through the same amp) reaches a spectral convergence of about 0.16 against the original, on a held-out test set of 1,000 examples. Everything after this milestone (multi-stage signal chains, real recordings, song input) is still ahead.
+**First milestone: proven on a single virtual amp.** Everything after this milestone (multi-stage signal chains, real recordings, song input) is still ahead.
+
+---
+
+## Results: Experiment 1
+
+A CNN was trained on 10,000 synthetic examples from one virtual amp (gain, bass, mid, treble, presence, master) and evaluated on 1,000 held-out examples it never saw during training. Every number and chart below comes straight out of `training/experiments/exp1_smoke/` (`evaluation/make_readme_charts.py` renders them; nothing here is hand-tuned).
+
+| Metric | Result |
+| :--- | :--- |
+| Training examples | 10,000 |
+| Held-out test examples | 1,000 |
+| Parameter mean absolute error (0-10 knob scale) | **0.80** |
+| Audio similarity, reconstructed vs. reference | **0.65** |
+| Spectral convergence, reconstructed vs. reference (lower is better) | **0.16** |
+
+<table>
+<tr>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/loss_curve_dark.png">
+  <img src="docs/assets/loss_curve_light.png" alt="Training and validation loss over 30 epochs, both curves converging smoothly">
+</picture>
+</td>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/param_mae_dark.png">
+  <img src="docs/assets/param_mae_light.png" alt="Mean absolute error per amp knob on the held-out test set, all under 1.2 on a 0-10 scale">
+</picture>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/audio_similarity_dark.png">
+  <img src="docs/assets/audio_similarity_light.png" alt="Audio similarity between reconstructed and reference tone, tracked during validation across training">
+</picture>
+</td>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/reconstruction_example_dark.png">
+  <img src="docs/assets/reconstruction_example_light.png" alt="Spectrogram of a reference test example next to the audio reconstructed from the model's predicted parameters">
+</picture>
+</td>
+</tr>
+</table>
+
+The rightmost image is not a cherry-picked best case: it is the *median* test example by audio similarity, so it represents typical performance rather than the easiest one.
+
+That answers the milestone's actual question: yes, a network can recover this virtual amp's parameters from unseen audio and reproduce the tone. What it does not yet cover: multiple amps, cabinets, IRs, pedals, real recordings, or an optimization loop that refines the initial prediction. Those are the next stages.
 
 ---
 
@@ -292,10 +318,11 @@ data/           generated datasets (not versioned)
 python -m training.generate_dataset --n-examples 10000 --out-name exp1_smoke
 python -m training.train --config configs/experiment1.yaml
 python -m training.evaluate --config configs/experiment1.yaml --checkpoint best.pt
+python -m evaluation.make_readme_charts --run exp1_smoke
 ```
 
 ---
 
 ## License
 
-Tone Engine 7 is open source. See the repository [LICENSE](LICENSE) file for details.
+Tone Engine 7 is licensed under [Apache 2.0](LICENSE).

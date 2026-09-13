@@ -17,9 +17,9 @@ models/checkpoints/
 *.pt
 *.ckpt
 
-# Experiment tracking
-training/experiments/*/
-!training/experiments/.gitkeep
+# Experiment tracking: keep history.json, config_used.yaml and eval/test_report.json
+# (small, and they are the evidence behind README claims) but not per-example debug plots
+training/experiments/*/eval/*.png
 
 # OS / editor
 .DS_Store
