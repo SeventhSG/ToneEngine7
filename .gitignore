@@ -1,0 +1,28 @@
+INSTRUCTIONS.md
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Data / model artifacts (regenerable, not for version control)
+data/raw/
+data/generated/
+data/processed/
+models/checkpoints/
+*.wav
+*.pt
+*.ckpt
+
+# Experiment tracking
+training/experiments/*/
+!training/experiments/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

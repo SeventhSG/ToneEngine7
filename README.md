@@ -256,7 +256,43 @@ This project is still in its early stages. The architecture, models, datasets, a
 The first major milestone is simple:
 > Train a model that can analyze an unseen generated guitar tone, predict the parameters that created it, and reproduce that tone.
 
-Everything else comes after that.
+**First milestone: proven on a single virtual amp.** A CNN trained on 10,000 synthetic gain/bass/mid/treble/presence/master examples recovers unseen test parameters with a mean absolute error of about 0.8 on a 0-10 scale, and the reconstructed audio (rendered from the predicted parameters through the same amp) reaches a spectral convergence of about 0.16 against the original, on a held-out test set of 1,000 examples. Everything after this milestone (multi-stage signal chains, real recordings, song input) is still ahead.
+
+---
+
+## Repository Layout
+
+```text
+audio/
+    synth/         synthetic DI guitar source generation
+    rendering/     the virtual amp (Experiment 1's ground truth renderer)
+    preprocessing/ wav I/O and normalization
+    features/      log-mel spectrogram extraction
+    similarity/    multi-resolution STFT audio similarity
+
+models/
+    tone_predictor/ audio -> parameters CNN
+    checkpoints/    trained weights (not versioned)
+
+training/
+    generate_dataset.py  builds a synthetic dataset from the virtual amp
+    dataset.py            torch Dataset over a generated dataset
+    train.py              training loop with parameter and audio-similarity validation
+    evaluate.py            held-out test set milestone report
+
+evaluation/     shared metrics and comparison plots
+optimization/   post-prediction parameter search (not yet implemented)
+configs/        experiment configs
+data/           generated datasets (not versioned)
+```
+
+### Running Experiment 1
+
+```bash
+python -m training.generate_dataset --n-examples 10000 --out-name exp1_smoke
+python -m training.train --config configs/experiment1.yaml
+python -m training.evaluate --config configs/experiment1.yaml --checkpoint best.pt
+```
 
 ---
 

@@ -1,0 +1,11 @@
+# Install torch/torchaudio separately with the CUDA index for your GPU, e.g.:
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0
+torchaudio==2.6.0
+pedalboard==0.9.25
+soundfile==0.14.0
+numpy==2.5.3
+scipy==1.18.1
+pyyaml==6.0.2
+tqdm==4.67.1
+matplotlib==3.10.0
