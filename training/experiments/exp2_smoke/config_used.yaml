@@ -1,0 +1,16 @@
+dataset:
+  dataset_dir: data/generated/exp2_smoke
+  sr: 16000
+experiment_name: exp2_smoke
+features:
+  hop_length: 256
+  n_fft: 1024
+  n_mels: 64
+training:
+  audio_eval_every: 5
+  audio_eval_n_examples: 20
+  batch_size: 32
+  epochs: 40
+  lr: 0.001
+  num_workers: 0
+  seed: 0

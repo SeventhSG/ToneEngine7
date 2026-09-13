@@ -291,28 +291,90 @@ That answers the milestone's actual question: yes, a network can recover this vi
 
 ---
 
+## Results: Experiment 2
+
+Stage 2 of INSTRUCTIONS.md asks for multiple amps, cabinets, IRs, mic modeling, overdrive, EQ, compression, and a noise gate all at once. That is too much to prove in one step, so this is **Stage 2, increment 1**: an overdrive pedal (on or off) into one of 3 amp voicings into one of 4 synthetic cabinet IRs. Compression, a noise gate, mic modeling, and a separate EQ pedal are not in this increment yet.
+
+The target is now a mix of continuous knobs (overdrive drive and level, gain, bass, mid, treble, presence, master) and discrete choices (which amp, which cabinet, whether the overdrive pedal is engaged), predicted by one CNN with multiple output heads. 10,000 training examples, evaluated on 1,000 held-out test examples.
+
+| Metric | Result |
+| :--- | :--- |
+| Continuous knob mean absolute error (0-10 scale) | 2.07 |
+| Cabinet identification accuracy (4 choices, chance = 25%) | **100%** |
+| Amp identification accuracy (3 choices, chance = 33%) | 59% |
+| Overdrive on/off accuracy (chance = 50%) | 61% |
+| Audio similarity, CNN prediction only | 0.40 |
+
+Cabinet identification is essentially solved, because a cabinet IR leaves a strong, distinctive spectral fingerprint. Amp and overdrive detection are only modestly above chance, honestly a weaker result than Experiment 1's clean single-amp case, likely because a low-drive overdrive pedal barely changes the audio at all (making "on" and "off" genuinely hard to tell apart from a short clip) and the three amp voicings partially overlap in the frequency ranges their EQ knobs cover. The training curve shows why the checkpoint was picked early: validation loss stops improving and gets noisy well before training loss does, i.e. the model overfits past epoch 15-20 on this harder task.
+
+<table>
+<tr>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_loss_curve_dark.png">
+  <img src="docs/assets/exp2_loss_curve_light.png" alt="Experiment 2 training and validation loss over 40 epochs, validation loss becoming noisy and rising after around epoch 20 while training loss keeps falling">
+</picture>
+</td>
+<td width="50%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_classification_accuracy_dark.png">
+  <img src="docs/assets/exp2_classification_accuracy_light.png" alt="Bar chart of test-set classification accuracy for overdrive on or off, amp choice, and cabinet choice, each compared against chance level">
+</picture>
+</td>
+</tr>
+</table>
+
+The optimization loop from Experiment 1 carries over here too, refining the continuous knobs with the discrete choices (amp, cabinet, overdrive on/off) held fixed at whatever the CNN predicted. On a 100-example sample of the test set (a smaller sample than Experiment 1's full 1,000, because of system memory constraints hit during this run, not a code limitation):
+
+| Metric | CNN prediction only | After optimization |
+| :--- | :---: | :---: |
+| Continuous knob MAE (0-10 scale) | 2.07 | **1.48** |
+| Audio similarity | 0.40 | **0.81** |
+| Test examples that improved | - | **100%** |
+
+That the continuous knobs can still be pushed this far even when roughly 40% of the amp choices and overdrive flags are wrong is itself informative: the amp voicings and cabinets are similar enough that a wrong discrete choice can often still be compensated for by re-tuning the tone stack. The optimizer does not yet search the discrete choices themselves (try the runner-up amp, try flipping overdrive) and only refines the continuous knobs around whatever the CNN guessed; extending it to a joint discrete-and-continuous search is a natural next step.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_optimization_comparison_dark.png">
+  <img src="docs/assets/exp2_optimization_comparison_light.png" alt="Bar chart comparing audio similarity and continuous knob error before and after the optimization loop, across 100 test examples">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_reconstruction_example_dark.png">
+  <img src="docs/assets/exp2_reconstruction_example_light.png" alt="Spectrogram of a reference test example next to the CNN-only reconstruction and the reconstruction after optimization, for Experiment 2's signal chain">
+</picture>
+
+---
+
 ## Repository Layout
 
 ```text
 audio/
     synth/         synthetic DI guitar source generation
-    rendering/     the virtual amp (Experiment 1's ground truth renderer)
+    rendering/     Experiment 1's single virtual amp, plus Experiment 2's
+                    overdrive/amp/cabinet signal chain (amp_models.py,
+                    cabinets.py, chain_params.py, signal_chain.py)
     preprocessing/ wav I/O and normalization
     features/      log-mel spectrogram extraction
     similarity/    multi-resolution STFT audio similarity
 
 models/
-    tone_predictor/ audio -> parameters CNN
+    tone_predictor/ audio -> parameters CNN (model.py) and the multi-head
+                    audio -> signal chain predictor (chain_model.py)
     checkpoints/    trained weights (not versioned)
 
 training/
-    generate_dataset.py  builds a synthetic dataset from the virtual amp
-    dataset.py            torch Dataset over a generated dataset
-    train.py              training loop with parameter and audio-similarity validation
-    evaluate.py            held-out test set milestone report
+    generate_dataset.py, generate_dataset_exp2.py   build a dataset from the renderer
+    dataset.py, dataset_exp2.py                      torch Datasets over a generated dataset
+    train.py, train_exp2.py                          training loops
+    evaluate.py, evaluate_exp2.py                    held-out test set milestone reports
 
 evaluation/     shared metrics, comparison plots, and README chart generation
+                (make_readme_charts.py for Experiment 1, _exp2 for Experiment 2)
 optimization/   CMA-ES refinement of the CNN's predicted parameters
+                (evaluate_optimization.py / _exp2.py); Experiment 2's discrete
+                choices (amp, cabinet, overdrive on/off) are held fixed during
+                this search, only the continuous knobs are refined
 configs/        experiment configs
 data/           generated datasets (not versioned)
 ```
@@ -325,6 +387,16 @@ python -m training.train --config configs/experiment1.yaml
 python -m training.evaluate --config configs/experiment1.yaml --checkpoint best.pt
 python -m optimization.evaluate_optimization --config configs/experiment1.yaml --n-examples 1000
 python -m evaluation.make_readme_charts --run exp1_smoke
+```
+
+### Running Experiment 2
+
+```bash
+python -m training.generate_dataset_exp2 --n-examples 10000 --out-name exp2_smoke
+python -m training.train_exp2 --config configs/experiment2.yaml
+python -m training.evaluate_exp2 --config configs/experiment2.yaml --checkpoint best.pt
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --n-examples 1000
+python -m evaluation.make_readme_charts_exp2 --run exp2_smoke
 ```
 
 ---

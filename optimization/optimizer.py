@@ -27,6 +27,16 @@ def optimize(initial_vector01, source_audio, sr, ref_audio, max_evals=300, sigma
     """initial_vector01: length-6 array in [0, 1], the CNN's prediction.
     Returns (best_vector01, n_evals_used).
     """
+    loss_fn = lambda vector01: _loss(vector01, source_audio, sr, ref_audio)
+    return optimize_generic(initial_vector01, loss_fn, max_evals=max_evals, sigma0=sigma0, seed=seed)
+
+
+def optimize_generic(initial_vector01, loss_fn, max_evals=300, sigma0=0.15, seed=0):
+    """Same CMA-ES loop, but for any continuous vector in [0, 1] and any
+    black-box loss_fn(vector01) -> float. Used when the parameter meaning
+    (which knobs, which renderer) varies by experiment, e.g. Experiment 2's
+    continuous knobs with the discrete amp/cabinet/overdrive choice fixed.
+    """
     es = cma.CMAEvolutionStrategy(
         np.asarray(initial_vector01, dtype=float).tolist(),
         sigma0,
@@ -34,7 +44,7 @@ def optimize(initial_vector01, source_audio, sr, ref_audio, max_evals=300, sigma
     )
     while not es.stop():
         candidates = es.ask()
-        losses = [_loss(np.array(c), source_audio, sr, ref_audio) for c in candidates]
+        losses = [loss_fn(np.clip(np.array(c), 0.0, 1.0)) for c in candidates]
         es.tell(candidates, losses)
 
     best_vector01 = np.clip(np.array(es.result.xbest), 0.0, 1.0)
