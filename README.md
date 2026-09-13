@@ -147,7 +147,7 @@ The engine can generate thousands of tones from random parameter combinations. E
 
 The metadata contains the parameters that generated the audio. The model then learns:
 
-$$	ext{Audio} \longrightarrow 	ext{Parameters}$$
+**Audio → Parameters**
 
 After training, it is tested on tones it has never seen before. If the model can successfully recover those parameters and reproduce the original sound, the foundation is working.
 
