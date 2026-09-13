@@ -24,6 +24,7 @@ from audio.preprocessing.io import load_wav
 from audio.rendering.params import PARAM_NAMES, denormalize
 from audio.rendering.virtual_amp import render as amp_render
 from models.tone_predictor.model import TonePredictor
+from optimization.optimizer import optimize as optimize_params
 from training.dataset import ToneDataset
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -130,7 +131,14 @@ def plot_audio_similarity(history, out_dir, theme_name):
     plt.close(fig)
 
 
-def plot_reconstruction_example(config_path, run_dir, out_dir, theme_name):
+def _spec_db(audio, n_fft=512):
+    hop = n_fft // 4
+    window = torch.hann_window(n_fft)
+    spec = torch.stft(torch.as_tensor(audio), n_fft, hop, window=window, return_complex=True)
+    return 20 * np.log10(np.abs(spec.numpy()) + 1e-6)
+
+
+def plot_reconstruction_example(config_path, run_dir, out_dir, theme_name, seed=0):
     theme = THEMES[theme_name]
     with open(config_path) as f:
         config = yaml.safe_load(f)
@@ -157,28 +165,34 @@ def plot_reconstruction_example(config_path, run_dir, out_dir, theme_name):
 
     with torch.no_grad():
         feature, _, example_id = test_ds[idx]
-        pred = model(feature.unsqueeze(0).to(device)).cpu().numpy()[0]
+        pred01 = model(feature.unsqueeze(0).to(device)).cpu().numpy()[0]
 
     example_dir = test_ds.example_dir(idx)
     source_audio, _ = load_wav(example_dir / "input.wav", sr=sr)
     ref_audio, _ = load_wav(example_dir / "audio.wav", sr=sr)
-    pred_params = dict(zip(PARAM_NAMES, denormalize(pred.tolist())))
-    gen_audio = amp_render(source_audio, sr, pred_params)
 
-    n_fft = 512
-    hop = n_fft // 4
-    window = torch.hann_window(n_fft)
-    ref_spec = torch.stft(torch.as_tensor(ref_audio), n_fft, hop, window=window, return_complex=True)
-    gen_spec = torch.stft(torch.as_tensor(gen_audio), n_fft, hop, window=window, return_complex=True)
-    ref_db = 20 * np.log10(np.abs(ref_spec.numpy()) + 1e-6)
-    gen_db = 20 * np.log10(np.abs(gen_spec.numpy()) + 1e-6)
+    cnn_params = dict(zip(PARAM_NAMES, denormalize(pred01.tolist())))
+    cnn_audio = amp_render(source_audio, sr, cnn_params)
+
+    optimized01, _ = optimize_params(pred01, source_audio, sr, ref_audio, seed=seed)
+    optimized_params = dict(zip(PARAM_NAMES, denormalize(optimized01.tolist())))
+    optimized_audio = amp_render(source_audio, sr, optimized_params)
+
+    ref_db = _spec_db(ref_audio)
+    cnn_db = _spec_db(cnn_audio)
+    opt_db = _spec_db(optimized_audio)
     vmin, vmax = ref_db.min(), ref_db.max()
 
-    fig, axes = plt.subplots(1, 2, figsize=(9, 3.6), dpi=160)
+    fig, axes = plt.subplots(1, 3, figsize=(12.5, 3.6), dpi=160)
     fig.patch.set_facecolor(theme["surface"])
     cmap = "magma" if theme_name == "light" else "inferno"
 
-    for ax, spec, title in zip(axes, [ref_db, gen_db], ["reference (median test example)", "reconstructed from predicted parameters"]):
+    panels = [
+        (ref_db, "reference (median test example)"),
+        (cnn_db, "CNN prediction only"),
+        (opt_db, "after optimization"),
+    ]
+    for ax, (spec, title) in zip(axes, panels):
         ax.set_facecolor(theme["surface"])
         ax.imshow(spec, aspect="auto", origin="lower", cmap=cmap, vmin=vmin, vmax=vmax)
         ax.set_title(title, color=theme["text_primary"], fontsize=10)
@@ -190,6 +204,46 @@ def plot_reconstruction_example(config_path, run_dir, out_dir, theme_name):
     fig.suptitle("Experiment 1: reference vs. reconstructed tone", color=theme["text_primary"], fontsize=13)
     fig.tight_layout()
     fig.savefig(out_dir / f"reconstruction_example_{theme_name}.png", facecolor=theme["surface"])
+    plt.close(fig)
+
+
+def plot_optimization_comparison(opt_report, out_dir, theme_name):
+    theme = THEMES[theme_name]
+    overall = opt_report["overall"]
+
+    fig, axes = plt.subplots(1, 2, figsize=(9, 4), dpi=160)
+    fig.patch.set_facecolor(theme["surface"])
+
+    metrics = [
+        (axes[0], "audio similarity (higher is better)",
+         overall["similarity_before_mean"], overall["similarity_after_mean"], (0, 1)),
+        (axes[1], "parameter MAE, 0-10 scale (lower is better)",
+         overall["param_mae_before_mean"], overall["param_mae_after_mean"], None),
+    ]
+
+    for ax, title, before, after, ylim in metrics:
+        style_axes(fig, ax, theme)
+        ax.grid(axis="x", visible=False)
+        bars = ax.bar(
+            ["CNN prediction", "after optimization"], [before, after],
+            color=[theme["series_1"], theme["series_2"]], width=0.5, zorder=3,
+        )
+        if ylim:
+            ax.set_ylim(*ylim)
+        ax.set_title(title, fontsize=10)
+        for bar, value in zip(bars, [before, after]):
+            ax.text(
+                bar.get_x() + bar.get_width() / 2, bar.get_height(),
+                f"{value:.2f}", ha="center", va="bottom",
+                color=theme["text_primary"], fontsize=10,
+            )
+
+    fig.suptitle(
+        f"Experiment 1: optimization loop impact (n={overall['n_examples']} test examples)",
+        color=theme["text_primary"], fontsize=13,
+    )
+    fig.tight_layout()
+    fig.savefig(out_dir / f"optimization_comparison_{theme_name}.png", facecolor=theme["surface"])
     plt.close(fig)
 
 
@@ -205,6 +259,12 @@ def main():
     with open(run_dir / "eval" / "test_report.json") as f:
         test_report = json.load(f)
 
+    opt_report_path = run_dir / "optimization" / "report.json"
+    opt_report = None
+    if opt_report_path.exists():
+        with open(opt_report_path) as f:
+            opt_report = json.load(f)
+
     out_dir = REPO_ROOT / "docs" / "assets"
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -217,8 +277,13 @@ def main():
         plot_param_mae(test_report, out_dir, theme_name)
         plot_audio_similarity(history, out_dir, theme_name)
         plot_reconstruction_example(config_path, run_dir, out_dir, theme_name)
+        if opt_report is not None:
+            plot_optimization_comparison(opt_report, out_dir, theme_name)
 
     print(f"wrote charts to {out_dir}")
+    if opt_report is None:
+        print("no optimization/report.json found; skipped the optimization comparison chart "
+              "(run optimization.evaluate_optimization first)")
 
 
 if __name__ == "__main__":

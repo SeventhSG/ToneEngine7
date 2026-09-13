@@ -233,21 +233,21 @@ This project is still in its early stages. The architecture, models, datasets, a
 The first major milestone is simple:
 > Train a model that can analyze an unseen generated guitar tone, predict the parameters that created it, and reproduce that tone.
 
-**First milestone: proven on a single virtual amp.** Everything after this milestone (multi-stage signal chains, real recordings, song input) is still ahead.
+**First milestone: proven on a single virtual amp, including the optimization loop.** Everything after this milestone (multi-stage signal chains, real recordings, song input) is still ahead.
 
 ---
 
 ## Results: Experiment 1
 
-A CNN was trained on 10,000 synthetic examples from one virtual amp (gain, bass, mid, treble, presence, master) and evaluated on 1,000 held-out examples it never saw during training. Every number and chart below comes straight out of `training/experiments/exp1_smoke/` (`evaluation/make_readme_charts.py` renders them; nothing here is hand-tuned).
+A CNN was trained on 10,000 synthetic examples from one virtual amp (gain, bass, mid, treble, presence, master) and evaluated on 1,000 held-out examples it never saw during training. Per INSTRUCTIONS.md, the CNN's prediction is only meant to be a starting point: a CMA-ES search then refines it by rendering, scoring against the same multi-resolution STFT distance used throughout the project, and repeating. Every number and chart below comes straight out of `training/experiments/exp1_smoke/` (`evaluation/make_readme_charts.py` renders them; nothing here is hand-tuned).
 
-| Metric | Result |
-| :--- | :--- |
-| Training examples | 10,000 |
-| Held-out test examples | 1,000 |
-| Parameter mean absolute error (0-10 knob scale) | **0.80** |
-| Audio similarity, reconstructed vs. reference | **0.65** |
-| Spectral convergence, reconstructed vs. reference (lower is better) | **0.16** |
+| Metric | CNN prediction only | After optimization |
+| :--- | :---: | :---: |
+| Parameter mean absolute error (0-10 knob scale) | 0.80 | **0.38** |
+| Audio similarity, reconstructed vs. reference | 0.65 | **0.92** |
+| Test examples that improved after optimization | - | **99.7%** |
+
+10,000 training examples, 1,000 held-out test examples, CMA-ES budget of 300 renders per example.
 
 <table>
 <tr>
@@ -273,16 +273,21 @@ A CNN was trained on 10,000 synthetic examples from one virtual amp (gain, bass,
 </td>
 <td width="50%">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/reconstruction_example_dark.png">
-  <img src="docs/assets/reconstruction_example_light.png" alt="Spectrogram of a reference test example next to the audio reconstructed from the model's predicted parameters">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/optimization_comparison_dark.png">
+  <img src="docs/assets/optimization_comparison_light.png" alt="Bar chart comparing audio similarity and parameter error before and after the optimization loop, across all 1000 test examples">
 </picture>
 </td>
 </tr>
 </table>
 
-The rightmost image is not a cherry-picked best case: it is the *median* test example by audio similarity, so it represents typical performance rather than the easiest one.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/reconstruction_example_dark.png">
+  <img src="docs/assets/reconstruction_example_light.png" alt="Spectrogram of a reference test example next to the CNN-only reconstruction and the reconstruction after optimization">
+</picture>
 
-That answers the milestone's actual question: yes, a network can recover this virtual amp's parameters from unseen audio and reproduce the tone. What it does not yet cover: multiple amps, cabinets, IRs, pedals, real recordings, or an optimization loop that refines the initial prediction. Those are the next stages.
+The example above is not a cherry-picked best case: it is the *median* test example by CNN-only audio similarity, so it represents typical performance rather than the easiest one. Note how much closer the third panel gets after optimization compared to the second.
+
+That answers the milestone's actual question: yes, a network can recover this virtual amp's parameters from unseen audio, and a render-compare-adjust loop on top of its prediction gets substantially closer to the reference tone. What it does not yet cover: multiple amps, cabinets, IRs, pedals, or real recordings. Those are the next stages.
 
 ---
 
@@ -306,8 +311,8 @@ training/
     train.py              training loop with parameter and audio-similarity validation
     evaluate.py            held-out test set milestone report
 
-evaluation/     shared metrics and comparison plots
-optimization/   post-prediction parameter search (not yet implemented)
+evaluation/     shared metrics, comparison plots, and README chart generation
+optimization/   CMA-ES refinement of the CNN's predicted parameters
 configs/        experiment configs
 data/           generated datasets (not versioned)
 ```
@@ -318,6 +323,7 @@ data/           generated datasets (not versioned)
 python -m training.generate_dataset --n-examples 10000 --out-name exp1_smoke
 python -m training.train --config configs/experiment1.yaml
 python -m training.evaluate --config configs/experiment1.yaml --checkpoint best.pt
+python -m optimization.evaluate_optimization --config configs/experiment1.yaml --n-examples 1000
 python -m evaluation.make_readme_charts --run exp1_smoke
 ```
 
