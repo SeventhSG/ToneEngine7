@@ -233,21 +233,21 @@ This project is still in its early stages. The architecture, models, datasets, a
 The first major milestone is simple:
 > Train a model that can analyze an unseen generated guitar tone, predict the parameters that created it, and reproduce that tone.
 
-**First milestone: proven on a single virtual amp, including the optimization loop.** Stage 2 (signal chains) is in progress: an overdrive, amp, and cabinet chain is working, and the optimizer can now change which amp is in the chain as well as its knobs (see Experiment 2). Real recordings and song input are still ahead.
+**First milestone: proven on a single virtual amp, including the optimization loop.** Stage 2 (signal chains) is in progress: an overdrive, amp, and cabinet chain is working, the optimizer can change which amp is in the chain as well as its knobs, and training on up to a million synthetic examples lifted the CNN's amp identification from 58% to 82% (see Experiment 2). Compression, a noise gate, mic modeling, real recordings, and song input are still ahead.
 
 ---
 
 ## Results: Experiment 1
 
-A CNN was trained on 10,000 synthetic examples from one virtual amp (gain, bass, mid, treble, presence, master) and evaluated on 1,000 held-out examples it never saw during training. Per INSTRUCTIONS.md, the CNN's prediction is only meant to be a starting point: a CMA-ES search then refines it by rendering, scoring against the same multi-resolution STFT distance used throughout the project, and repeating. Every number and chart below comes straight out of `training/experiments/exp1_smoke/` (`evaluation/make_readme_charts.py` renders them; nothing here is hand-tuned).
+A CNN was trained on 8,000 synthetic examples from one virtual amp (gain, bass, mid, treble, presence, master) and evaluated on 1,000 held-out examples it never saw during training. Per INSTRUCTIONS.md, the CNN's prediction is only meant to be a starting point: a CMA-ES search then refines it by rendering, scoring against the same multi-resolution STFT distance used throughout the project, and repeating. Every number and chart below comes straight out of `training/experiments/exp1_smoke/` (`evaluation/make_readme_charts.py` renders them; nothing here is hand-tuned).
 
 | Metric | CNN prediction only | After optimization |
 | :--- | :---: | :---: |
-| Parameter mean absolute error (0-10 knob scale) | 0.80 | **0.38** |
+| Parameter mean absolute error (0-10 knob scale) | 0.80 | **0.39** |
 | Audio similarity, reconstructed vs. reference | 0.65 | **0.92** |
-| Test examples that improved after optimization | - | **99.7%** |
+| Test examples that improved after optimization | - | **100%** |
 
-10,000 training examples, 1,000 held-out test examples, CMA-ES budget of 300 renders per example.
+8,000 training examples (plus 1,000 for validation), 1,000 held-out test examples, CMA-ES budget of 300 renders per example.
 
 <table>
 <tr>
@@ -295,7 +295,7 @@ That answers the milestone's actual question: yes, a network can recover this vi
 
 Stage 2 of INSTRUCTIONS.md asks for multiple amps, cabinets, IRs, mic modeling, overdrive, EQ, compression, and a noise gate all at once. That is too much to prove in one step, so this is **Stage 2, increment 1**: an overdrive pedal (on or off) into one of 3 amp voicings into one of 4 synthetic cabinet IRs. Compression, a noise gate, mic modeling, and a separate EQ pedal are not in this increment yet.
 
-The target is now a mix of continuous knobs (overdrive drive and level, gain, bass, mid, treble, presence, master) and discrete choices (which amp, which cabinet, whether the overdrive pedal is engaged), predicted by one CNN with multiple output heads. 10,000 training examples, evaluated on 1,000 held-out test examples.
+The target is now a mix of continuous knobs (overdrive drive and level, gain, bass, mid, treble, presence, master) and discrete choices (which amp, which cabinet, whether the overdrive pedal is engaged), predicted by one CNN with multiple output heads. 8,000 training examples (plus 1,000 for validation), evaluated on 1,000 held-out test examples.
 
 | Metric | Result |
 | :--- | :--- |
@@ -303,7 +303,7 @@ The target is now a mix of continuous knobs (overdrive drive and level, gain, ba
 | Cabinet identification accuracy (4 choices, chance = 25%) | **100%** |
 | Amp identification accuracy (3 choices, chance = 33%) | 59% |
 | Overdrive on/off accuracy (chance = 50%) | 61% |
-| Audio similarity, CNN prediction only | 0.40 |
+| Audio similarity, CNN prediction only | 0.41 |
 
 Cabinet identification is essentially solved, because a cabinet IR leaves a strong, distinctive spectral fingerprint. Amp and overdrive detection are only modestly above chance, honestly a weaker result than Experiment 1's clean single-amp case, likely because a low-drive overdrive pedal barely changes the audio at all (making "on" and "off" genuinely hard to tell apart from a short clip) and the three amp voicings partially overlap in the frequency ranges their EQ knobs cover. The training curve shows why the checkpoint was picked early: validation loss stops improving and gets noisy well before training loss does, i.e. the model overfits past epoch 15-20 on this harder task.
 
@@ -328,11 +328,11 @@ The optimization loop from Experiment 1 carries over here too, refining the cont
 
 | Metric | CNN prediction only | After optimization |
 | :--- | :---: | :---: |
-| Continuous knob MAE (0-10 scale) | 2.07 | **1.47** |
+| Continuous knob MAE (0-10 scale) | 2.07 | **1.43** |
 | Audio similarity | 0.41 | **0.81** |
-| Test examples that improved | - | **99.9%** |
+| Test examples that improved | - | **100%** |
 
-That the continuous knobs can still be pushed this far even when roughly 40% of the amp choices and overdrive flags are wrong is itself informative: a wrong amp can often be partly compensated for by re-tuning the tone stack. Giving the same 300-render loop the *true* amp, cabinet, and overdrive state only reaches 0.83 on the same 1,000 examples, so at this budget the wrong choices cost about 0.03 of similarity.
+That the continuous knobs can still be pushed this far even when roughly 40% of the amp choices and overdrive flags are wrong is itself informative: a wrong amp can often be partly compensated for by re-tuning the tone stack. Giving the same 300-render loop the *true* amp, cabinet, and overdrive state only reaches 0.83 on the same 1,000 examples, so at this budget the wrong choices cost about 0.02 of similarity.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_optimization_comparison_dark.png">
@@ -353,16 +353,16 @@ Compared on the same 200 test examples, all at the same total budget of about 1,
 | | Audio similarity | Amp identified | Knob MAE (0-10) |
 | :--- | :---: | :---: | :---: |
 | CNN prediction only | 0.41 | 53.5% | 2.07 |
-| Choices fixed, 300 renders | 0.81 | 53.5% | 1.47 |
-| Choices fixed, 1,800 renders | 0.90 | 53.5% | 0.94 |
-| **Amp search, 1,800 renders** | **0.93** | **74.5%** | **0.74** |
-| True choices, 1,800 renders (ceiling) | 0.96 | 100% | 0.43 |
+| Choices fixed, 300 renders | 0.81 | 53.5% | 1.46 |
+| Choices fixed, 1,800 renders | 0.89 | 53.5% | 0.96 |
+| **Amp search, 1,800 renders** | **0.92** | **74.0%** | **0.69** |
+| True choices, 1,800 renders (ceiling) | 0.95 | 100% | 0.42 |
 
-The amp search gains +0.028 similarity over keeping the CNN's choice at equal compute (95% bootstrap interval +0.018 to +0.040), which is about half the distance to the ceiling, and it raises amp identification from 53.5% to 74.5% using nothing but render-and-compare. The average hides a trade-off, though: on the 93 examples where the CNN's amp was wrong the search gains +0.081, while on the 107 where it was right it loses 0.018, because the winning amp only gets about 1,200 of the 1,800 renders instead of all of them. Example by example, the search beats keeping the CNN's choice on 43% of the test set and is slightly worse on the other 57% (some of that per-example spread is CMA-ES run-to-run randomness, see the note below). Only searching when the CNN is unsure of its amp call could keep most of the gain without that cost; that has not been tried yet.
+The amp search gains +0.030 similarity over keeping the CNN's choice at equal compute (95% bootstrap interval +0.019 to +0.042), about half the distance to the ceiling, and it raises amp identification from 53.5% to 74.0% using nothing but render-and-compare. The average hides a trade-off, though: on the 93 examples where the CNN's amp was wrong the search gains +0.088, while on the 107 where it was right it loses 0.020, because the winning amp only gets about 1,200 of the 1,800 renders instead of all of them. Example by example, the search beats keeping the CNN's choice on 46% of the test set and is slightly worse on the other 54%. Only searching when the CNN is unsure of its amp call could keep most of the gain without that cost; that has not been tried yet. How much the search is worth also depends on how good the CNN is, which the next section measures.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_choice_search_dark.png">
-  <img src="docs/assets/exp2_choice_search_light.png" alt="Two bar charts on the same 200 test examples. Audio similarity: choices fixed at 300 renders 0.81, choices fixed at 1800 renders 0.90, amp search at 1800 renders 0.93, true choices at 1800 renders 0.96. Amp identified correctly: 53.5%, 53.5%, 74.5%, 100%, against a chance level of 33%">
+  <img src="docs/assets/exp2_choice_search_light.png" alt="Two bar charts on the same 200 test examples. Audio similarity: choices fixed at 300 renders 0.81, choices fixed at 1800 renders 0.89, amp search at 1800 renders 0.92, true choices at 1800 renders 0.95. Amp identified correctly: 53.5%, 53.5%, 74%, 100%, against a chance level of 33%">
 </picture>
 
 The schedule was picked on the validation split (100 examples per row), so the test set played no part in choosing it. Most of what was tried did not work:
@@ -382,7 +382,40 @@ The schedule was picked on the validation split (100 examples per row), so the t
 
 Two lessons came out of this. First, **at a budget of 300 renders, every search schedule tried lost** to trusting the CNN. A short search on each candidate ranks them by how close each one happened to start, not by how close it could get, and whatever it does pick gets less refinement. Screening needs roughly 300 renders per candidate before it reliably separates the amps, so the search only pays off with a larger total budget. Second, **overdrive on/off is only weakly identifiable from the sound**: given the true amp and cabinet and 300 renders each, the true overdrive state reached the lower loss in only 62 of 100 validation examples. A low-drive pedal is mostly a level change, which the amp's gain knob can reproduce. Searching over it spends budget for little return, which is why the final search varies only the amp.
 
-**Reproducibility note.** The `cma` library treats a seed of 0 as "seed from the clock", and the optimizer passed 0, so every optimization result above (and Experiment 1's) came from a randomly seeded search even though `--seed 0` was set. That is fixed now (`optimization/optimizer.py`, `_cma_seed`) and verified: two runs now match to 10 decimal places. The reported averages are still sound estimates, since each example was a genuine search with its own random seed. Two runs of the same 100 test examples before the fix differed by up to 0.15 similarity on single examples, while their averages differed by only 0.002. Rerunning the commands below will reproduce the averages within that noise, not the per-example values in the committed reports.
+### More training data
+
+Everything above uses a CNN trained on 8,000 examples, and its validation loss bottomed out at epoch 14 of 40, which is the usual sign of too little data. The amp search also showed the audio does carry the amp's identity (render-and-compare found it 74% of the time) while the CNN only managed 54%. So the next question was simply whether more of the same synthetic data fixes the CNN.
+
+`training/generate_shards_exp2.py` builds a train-only pool of up to 1,000,000 examples from the same signal chain, with its own random seed (1000, against 42 for the original dataset). Each shard of 10,000 examples is stored as one array of log-mel features plus labels instead of three files per example, so a million examples take 12 GB and load as fast sequential reads. (The pool was first generated on another disk and later regenerated under `data/generated/exp2_pool`; generation is deterministic per shard and a sampled shard was verified bit-identical, which is why some runs' `config_used.yaml` still names the first location.) Validation and test are still the original splits, so every row below is scored on the same 1,000 test examples as everything else in this README. The only thing that changes between rows is how many pool examples the CNN is trained on (`configs/experiment2_pool*.yaml`); the model, learning rate, batch size, and stopping rule (stop after 8 epochs without a validation improvement) are identical.
+
+| Training examples | Amp identified | Overdrive on/off | Cabinet | Knob MAE (0-10) | Audio similarity, CNN only |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 8,000 | 57.7% | 61.6% | 100% | 2.14 | 0.41 |
+| 32,000 | 67.4% | 64.0% | 100% | 1.77 | 0.45 |
+| 100,000 | 70.7% | 65.4% | 100% | 1.55 | 0.46 |
+| 300,000 | 77.9% | 66.3% | 100% | 1.37 | 0.49 |
+| **1,000,000** | **82.3%** | **68.5%** | 100% | **1.26** | **0.52** |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_data_scaling_dark.png">
+  <img src="docs/assets/exp2_data_scaling_light.png" alt="Two line charts against training set size on a log scale from 8k to 1M. Amp identification rises from 57.7% to 82.3% and overdrive on/off from 61.6% to 68.5%. Knob error falls from 2.14 to 1.26.">
+</picture>
+
+Amp identification climbs from 57.7% to 82.3% and is still rising at a million examples: about 5.6 points per tripling of the data on average, with single steps ranging from +3.3 to +9.7. Knob error falls steadily too. Overdrive on/off barely moves (61.6% to 68.5%), which fits the earlier finding that it is only weakly identifiable from the sound at all. The 8,000-example row is a control: trained through the new pool pipeline it lands within noise of the original model (57.7% against 58.9% amp, 2.14 against 2.07 knob error), so the gains come from the data and not the pipeline. Each row is a single training run, and validation loss stays spiky even at a million examples (it jumps from about 1.0 to 1.8 and back between epochs), so the checkpoint picked by validation loss adds some noise to each point; the trend across five sizes is the robust part, not any one step.
+
+A learning-rate schedule was tried as well, on 100,000 examples: cosine decay to zero over 30 epochs instead of a constant rate. It helped a little (amp 72.1% against 70.7%, knob error 1.48 against 1.55, similarity 0.49 against 0.46), far less than tripling the data did, and the validation loss stayed noisy even at a near-zero learning rate, so the noise is not coming from the learning rate. The scaling runs all use the constant rate so that data size is the only variable.
+
+A better CNN pays off after optimization too. Same seeds, same examples (all 1,000 for the 300-render column, the same 200 for the others):
+
+| CNN trained on | Choices fixed, 300 renders | Choices fixed, 1,800 renders | Amp search, 1,800 renders | True choices, 1,800 renders |
+| :--- | :---: | :---: | :---: | :---: |
+| 8,000 (original) | 0.807 | 0.894 | 0.924 | 0.953 |
+| 300,000 | 0.847 | 0.932 | 0.942 | 0.957 |
+| **1,000,000** | **0.852** | **0.935** | **0.942** | 0.959 |
+
+At the everyday budget of 300 renders, better training data lifts the final similarity from 0.807 to 0.847 (300,000 examples) and 0.852 (1,000,000 examples; +0.045 over the original, 95% bootstrap interval +0.040 to +0.050). Both are already more than handing the original CNN the true choices at that budget (0.829). The amp search matters less as the CNN improves: over keeping the CNN's choice at 1,800 renders it adds +0.030 for the original CNN, +0.010 for the 300,000-example one (interval +0.000 to +0.020), and +0.006 for the 1,000,000-example one, whose interval (-0.001 to +0.014) includes zero. By then the CNN's own amp call (82.0% on these examples) is about as good as what render-and-compare finds (82.5%), so there is little left for the search to fix. The order of priorities is clear: more training data first, render-and-compare search second.
+
+**Reproducibility note.** The `cma` library treats a seed of 0 as "seed from the clock", and the optimizer used to pass 0, so optimization runs were randomly seeded even with `--seed 0`. That is fixed (`optimization/optimizer.py`, `_cma_seed`), and each example now gets its own seed derived from the base seed (`--seed 0` gives example *i* seed *i*), the same in every mode so that fixed / search / true-choice comparisons stay paired. Per-example seeds matter: one shared seed for every example also reproduces exactly, but it shifted the 1,000-example average by +0.004 against the randomly seeded run, because every example then gets the same random draws. All test-set optimization numbers in this README (both experiments) come from per-example-seeded runs (`*_pseed.json` reports for Experiment 2), and two runs with the same seed match to 10 decimal places. The validation sweep table above was run before the fix; its differences between schedules are much larger than that seed effect.
 
 ---
 
@@ -405,12 +438,14 @@ models/
 
 training/
     generate_dataset.py, generate_dataset_exp2.py   build a dataset from the renderer
-    dataset.py, dataset_exp2.py                      torch Datasets over a generated dataset
+    generate_shards_exp2.py                          build a large train-only pool as feature shards
+    dataset.py, dataset_exp2.py, pool_exp2.py        torch Datasets / shard-pool batches
     train.py, train_exp2.py                          training loops
     evaluate.py, evaluate_exp2.py                    held-out test set milestone reports
 
 evaluation/     shared metrics, comparison plots, and README chart generation
-                (make_readme_charts.py for Experiment 1, _exp2 for Experiment 2)
+                (make_readme_charts.py for Experiment 1, _exp2 for Experiment 2,
+                _scaling for the training-data chart)
 optimization/   CMA-ES refinement of the CNN's predicted parameters
                 (evaluate_optimization.py / _exp2.py); for Experiment 2 the
                 discrete choices can be held fixed, searched (every amp is
@@ -423,7 +458,7 @@ data/           generated datasets (not versioned)
 ### Running Experiment 1
 
 ```bash
-python -m training.generate_dataset --n-examples 10000 --out-name exp1_smoke
+python -m training.generate_dataset --n-examples 10000 --seed 42 --out-name exp1_smoke
 python -m training.train --config configs/experiment1.yaml
 python -m training.evaluate --config configs/experiment1.yaml --checkpoint best.pt
 python -m optimization.evaluate_optimization --config configs/experiment1.yaml --n-examples 1000
@@ -433,16 +468,30 @@ python -m evaluation.make_readme_charts --run exp1_smoke
 ### Running Experiment 2
 
 ```bash
-python -m training.generate_dataset_exp2 --n-examples 10000 --out-name exp2_smoke
+python -m training.generate_dataset_exp2 --n-examples 10000 --seed 42 --out-name exp2_smoke
 python -m training.train_exp2 --config configs/experiment2.yaml
 python -m training.evaluate_exp2 --config configs/experiment2.yaml --checkpoint best.pt
-python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --n-examples 1000
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --n-examples 1000 --tag pseed
 # amp search vs. fixed choices vs. the true-choice ceiling, all at 1800 renders per example
-python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode search --max-evals 1800 --n-examples 200 --tag b1800
-python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode fixed --max-evals 1800 --n-examples 200 --tag b1800
-python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode oracle --max-evals 1800 --n-examples 200 --tag b1800
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode search --max-evals 1800 --n-examples 200 --tag b1800_pseed
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode fixed --max-evals 1800 --n-examples 200 --tag b1800_pseed
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode oracle --max-evals 1800 --n-examples 200 --tag b1800_pseed
 python -m evaluation.make_readme_charts_exp2 --run exp2_smoke
 ```
+
+### Running the data-scaling runs
+
+```bash
+# 1M-example train-only pool, about 12 GB of features, resumable (finished shards are skipped)
+python -m training.generate_shards_exp2 --n-examples 1000000 --out-dir data/generated/exp2_pool --no-audio --workers 2
+# one run per size: 8k, 32k, 100k, 300k, 1m (and 100k_cosine for the schedule test); --resume continues a killed run
+python -m training.train_exp2 --config configs/experiment2_pool300k.yaml --resume
+python -m training.evaluate_exp2 --config configs/experiment2_pool300k.yaml --checkpoint best.pt --n-plots 0
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2_pool300k.yaml --n-examples 1000 --tag pseed
+python -m evaluation.make_readme_charts_scaling
+```
+
+The optimization evaluator resumes from its last checkpoint (`*_partial.json`) if it is interrupted, so a long run can simply be restarted with the same command.
 
 ---
 

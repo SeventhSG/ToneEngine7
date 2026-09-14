@@ -175,12 +175,18 @@ def main():
             before_mae = continuous_mae(initial01, target, None)
             before_sim = multi_resolution_stft_distance(ref_audio, before_audio)["similarity"]
 
-            record = {"id": example_id}
+            # One seed per example, derived from the base seed: still reproducible, but the
+            # average over examples also averages over many CMA-ES seeds. A single shared seed
+            # gives every example the same random draws, so the whole run shifts together if
+            # that one sequence happens to be lucky or unlucky. The same example gets the same
+            # seed in every mode, which keeps fixed / search / oracle comparisons paired.
+            example_seed = args.seed * 100_000 + idx
+            record = {"id": example_id, "seed": example_seed}
             if args.mode == "search":
                 candidates = [(c, initial01) for c in ranked_choices(pred, 0, args.vary)[:args.n_candidates]]
                 after_choice, optimized01, n_evals, trace = optimize_with_choices(
                     candidates, loss_fn, max_evals=args.max_evals, keep=args.keep,
-                    screen_evals=args.screen_evals, mid_evals=args.mid_evals, seed=args.seed,
+                    screen_evals=args.screen_evals, mid_evals=args.mid_evals, seed=example_seed,
                 )
                 record["screen_rank_of_winner"] = [c for c, _ in candidates].index(after_choice)
                 record["trace"] = {k: [[list(map(int, c)), float(l)] for c, l in v] for k, v in trace.items()}
@@ -192,7 +198,7 @@ def main():
                     after_choice = cnn_choice
                 optimized01, n_evals = optimize_generic(
                     initial01, lambda v, c=after_choice: loss_fn(c, v),
-                    max_evals=args.max_evals, seed=args.seed,
+                    max_evals=args.max_evals, seed=example_seed,
                 )
 
             after_audio = chain_render(source_audio, sr, chain_from(after_choice, optimized01))

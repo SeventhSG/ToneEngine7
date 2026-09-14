@@ -1,0 +1,20 @@
+dataset:
+  dataset_dir: data/generated/exp2_smoke
+  n_train: 32000
+  sr: 16000
+  train_pool_dir: D:/ToneEngine7/exp2_pool
+experiment_name: exp2_pool32k
+features:
+  hop_length: 256
+  n_fft: 1024
+  n_mels: 64
+training:
+  audio_eval_every: 5
+  audio_eval_n_examples: 20
+  batch_size: 32
+  epochs: 40
+  lr: 0.001
+  num_workers: 0
+  patience: 8
+  seed: 0
+  shards_per_block: 4

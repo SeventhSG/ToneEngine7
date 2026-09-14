@@ -1,0 +1,25 @@
+experiment_name: exp2_pool300k
+
+dataset:
+  # validation and test come from dataset_dir, identical to exp2_smoke;
+  # training examples come from the shard pool (training/generate_shards_exp2.py)
+  dataset_dir: data/generated/exp2_smoke
+  train_pool_dir: data/generated/exp2_pool
+  n_train: 300000
+  sr: 16000
+
+features:
+  n_fft: 1024
+  hop_length: 256
+  n_mels: 64
+
+training:
+  batch_size: 32
+  epochs: 40
+  patience: 8
+  shards_per_block: 2
+  lr: 0.001
+  num_workers: 0
+  audio_eval_every: 5
+  audio_eval_n_examples: 20
+  seed: 0

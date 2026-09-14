@@ -75,9 +75,11 @@ def main():
             before_mae = parameter_mae(pred01, true01)
             before_sim = audio_similarity(ref_audio, before_audio)
 
+            # one reproducible seed per example, so the average also averages over seeds
+            # (see evaluate_optimization_exp2.py)
             optimized01, n_evals = optimize(
                 pred01, source_audio, sr, ref_audio,
-                max_evals=args.max_evals, seed=args.seed,
+                max_evals=args.max_evals, seed=args.seed * 100_000 + idx,
             )
             after_params = dict(zip(PARAM_NAMES, denormalize(optimized01.tolist())))
             after_audio = amp_render(source_audio, sr, after_params)

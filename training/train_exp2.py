@@ -3,6 +3,11 @@ cabinet choice, and the continuous knobs, all from one spectrogram.
 
 Usage (from repo root):
     python -m training.train_exp2 --config configs/experiment2.yaml
+
+If the config sets dataset.train_pool_dir, training batches come from a shard
+pool (training/generate_shards_exp2.py) instead of the dataset's own train
+split; validation still uses dataset_dir's val split, so runs stay comparable.
+--resume continues a killed run from its last finished epoch.
 """
 
 import argparse
@@ -23,6 +28,7 @@ from audio.rendering.signal_chain import render as chain_render
 from audio.similarity.stft_loss import multi_resolution_stft_distance
 from models.tone_predictor.chain_model import ChainPredictor
 from training.dataset_exp2 import ChainDataset
+from training.pool_exp2 import ShardPool
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -101,6 +107,7 @@ def run_audio_eval(model, dataset, device, n_examples, sr):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, required=True)
+    parser.add_argument("--resume", action="store_true", help="continue from the last finished epoch")
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -115,13 +122,25 @@ def main():
         hop_length=config["features"]["hop_length"], n_mels=config["features"]["n_mels"],
     )
 
-    train_ds = ChainDataset(dataset_dir, "train", feature_fn, sr)
-    val_ds = ChainDataset(dataset_dir, "val", feature_fn, sr)
+    batch_size = config["training"]["batch_size"]
+    pool_dir = config["dataset"].get("train_pool_dir")
+    if pool_dir:
+        pool = ShardPool(REPO_ROOT / pool_dir, config["dataset"]["n_train"], config["training"].get("shards_per_block", 2))
+        print(f"training on {len(pool)} examples from {pool_dir} ({len(pool.shards)} shards)")
 
-    train_loader = DataLoader(
-        train_ds, batch_size=config["training"]["batch_size"], shuffle=True,
-        num_workers=config["training"]["num_workers"],
-    )
+        def train_batches(epoch):
+            return pool.batches(batch_size, epoch, config["training"]["seed"])
+    else:
+        train_ds = ChainDataset(dataset_dir, "train", feature_fn, sr)
+        train_loader = DataLoader(
+            train_ds, batch_size=batch_size, shuffle=True,
+            num_workers=config["training"]["num_workers"],
+        )
+
+        def train_batches(epoch):
+            return ((feature, target) for feature, target, _ in train_loader)
+
+    val_ds = ChainDataset(dataset_dir, "val", feature_fn, sr)
     val_loader = DataLoader(
         val_ds, batch_size=config["training"]["batch_size"], shuffle=False,
         num_workers=config["training"]["num_workers"],
@@ -135,14 +154,37 @@ def main():
     checkpoint_dir = REPO_ROOT / "models" / "checkpoints" / config["experiment_name"]
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
 
+    # optional: decay the learning rate to zero over the configured epochs
+    scheduler = None
+    if config["training"].get("lr_schedule") == "cosine":
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=config["training"]["epochs"])
+
     history = []
     best_val_loss = float("inf")
+    epochs_since_best = 0
+    start_epoch = 1
+    patience = config["training"].get("patience")
+    resume_path = checkpoint_dir / "resume.pt"
+    if args.resume and resume_path.exists():
+        state = torch.load(resume_path, map_location=device)
+        model.load_state_dict(state["model"])
+        optimizer.load_state_dict(state["optimizer"])
+        if scheduler is not None:
+            scheduler.load_state_dict(state["scheduler"])
+        torch.set_rng_state(state["torch_rng"].cpu())  # map_location moved it to the GPU; the CPU RNG needs it back
+        best_val_loss, epochs_since_best = state["best_val_loss"], state["epochs_since_best"]
+        start_epoch = state["epoch"] + 1
+        with open(run_dir / "history.json") as f:
+            history = json.load(f)[:state["epoch"]]
+        print(f"resuming after epoch {state['epoch']} (best val_loss so far {best_val_loss:.4f})")
 
-    for epoch in range(1, config["training"]["epochs"] + 1):
+    for epoch in range(start_epoch, config["training"]["epochs"] + 1):
+        if patience and epochs_since_best >= patience:
+            break
         model.train()
         train_losses = []
         t0 = time.time()
-        for feature, target, _ in train_loader:
+        for feature, target in train_batches(epoch):
             feature = feature.to(device)
             target = {k: v.to(device) for k, v in target.items()}
             optimizer.zero_grad()
@@ -164,7 +206,10 @@ def main():
 
         train_loss = float(np.mean(train_losses))
         val_loss = float(np.mean(val_losses))
-        epoch_record = {"epoch": epoch, "train_loss": train_loss, "val_loss": val_loss, "seconds": time.time() - t0}
+        epoch_record = {"epoch": epoch, "train_loss": train_loss, "val_loss": val_loss, "seconds": time.time() - t0,
+                        "lr": optimizer.param_groups[0]["lr"]}
+        if scheduler is not None:
+            scheduler.step()
 
         if epoch % config["training"]["audio_eval_every"] == 0 or epoch == config["training"]["epochs"]:
             audio_eval = run_audio_eval(model, val_ds, device, config["training"]["audio_eval_n_examples"], sr)
@@ -180,11 +225,22 @@ def main():
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
+            epochs_since_best = 0
             torch.save(model.state_dict(), checkpoint_dir / "best.pt")
+        else:
+            epochs_since_best += 1
 
         torch.save(model.state_dict(), checkpoint_dir / "last.pt")
         with open(run_dir / "history.json", "w") as f:
             json.dump(history, f, indent=2)
+        torch.save({
+            "model": model.state_dict(), "optimizer": optimizer.state_dict(), "torch_rng": torch.get_rng_state(),
+            "epoch": epoch, "best_val_loss": best_val_loss, "epochs_since_best": epochs_since_best,
+            "scheduler": scheduler.state_dict() if scheduler is not None else None,
+        }, resume_path)
+
+    if patience and epochs_since_best >= patience:
+        print(f"stopped early: no val_loss improvement for {patience} epochs")
 
     with open(run_dir / "config_used.yaml", "w") as f:
         yaml.safe_dump(config, f)

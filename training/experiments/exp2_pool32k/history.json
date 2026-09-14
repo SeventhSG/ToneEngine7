@@ -1,0 +1,172 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 1.8059496955871581,
+    "val_loss": 1.6107652001082897,
+    "seconds": 11.252191066741943
+  },
+  {
+    "epoch": 2,
+    "train_loss": 1.6075425473451614,
+    "val_loss": 1.6329465955495834,
+    "seconds": 10.312469244003296
+  },
+  {
+    "epoch": 3,
+    "train_loss": 1.5450448564291,
+    "val_loss": 1.5212864950299263,
+    "seconds": 10.522063255310059
+  },
+  {
+    "epoch": 4,
+    "train_loss": 1.4979811774492264,
+    "val_loss": 1.4899712763726711,
+    "seconds": 10.076058626174927
+  },
+  {
+    "epoch": 5,
+    "train_loss": 1.460013586640358,
+    "val_loss": 1.7241000421345234,
+    "seconds": 10.175265312194824,
+    "audio_similarity_mean": 0.43796119903365655,
+    "amp_accuracy": 0.65,
+    "cabinet_accuracy": 1.0,
+    "overdrive_accuracy": 0.7
+  },
+  {
+    "epoch": 6,
+    "train_loss": 1.4271269419193269,
+    "val_loss": 1.473824881017208,
+    "seconds": 10.734427690505981
+  },
+  {
+    "epoch": 7,
+    "train_loss": 1.3978173283338546,
+    "val_loss": 1.5260634422302246,
+    "seconds": 10.445091962814331
+  },
+  {
+    "epoch": 8,
+    "train_loss": 1.3715062807798386,
+    "val_loss": 1.4307198487222195,
+    "seconds": 9.938998460769653
+  },
+  {
+    "epoch": 9,
+    "train_loss": 1.3423370580673217,
+    "val_loss": 1.4447927437722683,
+    "seconds": 9.76483964920044
+  },
+  {
+    "epoch": 10,
+    "train_loss": 1.3184721985459327,
+    "val_loss": 1.3539945222437382,
+    "seconds": 10.587640285491943,
+    "audio_similarity_mean": 0.4693266567779283,
+    "amp_accuracy": 0.6,
+    "cabinet_accuracy": 1.0,
+    "overdrive_accuracy": 0.75
+  },
+  {
+    "epoch": 11,
+    "train_loss": 1.2863011639714241,
+    "val_loss": 1.3419669046998024,
+    "seconds": 10.588813781738281
+  },
+  {
+    "epoch": 12,
+    "train_loss": 1.26767207467556,
+    "val_loss": 2.1331532187759876,
+    "seconds": 10.913691759109497
+  },
+  {
+    "epoch": 13,
+    "train_loss": 1.2373962562680245,
+    "val_loss": 1.847326910123229,
+    "seconds": 10.626152038574219
+  },
+  {
+    "epoch": 14,
+    "train_loss": 1.2204239950776101,
+    "val_loss": 1.3740768060088158,
+    "seconds": 9.997931003570557
+  },
+  {
+    "epoch": 15,
+    "train_loss": 1.201105295062065,
+    "val_loss": 1.4393181540071964,
+    "seconds": 10.010813474655151,
+    "audio_similarity_mean": 0.4395524444723712,
+    "amp_accuracy": 0.55,
+    "cabinet_accuracy": 1.0,
+    "overdrive_accuracy": 0.5
+  },
+  {
+    "epoch": 16,
+    "train_loss": 1.1757280587553978,
+    "val_loss": 1.385822881013155,
+    "seconds": 9.932170867919922
+  },
+  {
+    "epoch": 17,
+    "train_loss": 1.1631936179399491,
+    "val_loss": 1.331105086952448,
+    "seconds": 10.52343463897705
+  },
+  {
+    "epoch": 18,
+    "train_loss": 1.139978976368904,
+    "val_loss": 1.4445818178355694,
+    "seconds": 10.15195083618164
+  },
+  {
+    "epoch": 19,
+    "train_loss": 1.1171375115513802,
+    "val_loss": 1.4722602292895317,
+    "seconds": 10.871181964874268
+  },
+  {
+    "epoch": 20,
+    "train_loss": 1.1007975496053695,
+    "val_loss": 1.408596571534872,
+    "seconds": 10.962920188903809,
+    "audio_similarity_mean": 0.4653653695178027,
+    "amp_accuracy": 0.55,
+    "cabinet_accuracy": 1.0,
+    "overdrive_accuracy": 0.75
+  },
+  {
+    "epoch": 21,
+    "train_loss": 1.0811622167825699,
+    "val_loss": 1.7657371424138546,
+    "seconds": 10.748786687850952
+  },
+  {
+    "epoch": 22,
+    "train_loss": 1.0682118303179742,
+    "val_loss": 1.4796647615730762,
+    "seconds": 10.489824533462524
+  },
+  {
+    "epoch": 23,
+    "train_loss": 1.047017457008362,
+    "val_loss": 1.4460096657276154,
+    "seconds": 10.13492488861084
+  },
+  {
+    "epoch": 24,
+    "train_loss": 1.0280474447607995,
+    "val_loss": 1.7709130942821503,
+    "seconds": 10.227934122085571
+  },
+  {
+    "epoch": 25,
+    "train_loss": 1.0076635801196099,
+    "val_loss": 1.4768040664494038,
+    "seconds": 10.152554035186768,
+    "audio_similarity_mean": 0.43919616914520765,
+    "amp_accuracy": 0.6,
+    "cabinet_accuracy": 1.0,
+    "overdrive_accuracy": 0.75
+  }
+]

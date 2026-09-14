@@ -121,10 +121,10 @@ def load_choice_search_reports(opt_dir):
     examples every one of them covers (the 1800-render runs use a smaller
     sample than the 300-render run). Returns None if any run is missing."""
     names = {
-        "fixed_300": "report.json",
-        "fixed_1800": "report_b1800.json",
-        "search_1800": "report_search_b1800.json",
-        "oracle_1800": "report_oracle_b1800.json",
+        "fixed_300": "report_pseed.json",
+        "fixed_1800": "report_b1800_pseed.json",
+        "search_1800": "report_search_b1800_pseed.json",
+        "oracle_1800": "report_oracle_b1800_pseed.json",
     }
     paths = {key: opt_dir / name for key, name in names.items()}
     if not all(p.exists() for p in paths.values()):
@@ -288,7 +288,7 @@ def main():
     with open(run_dir / "eval" / "test_report.json") as f:
         test_report = json.load(f)
 
-    opt_report_path = run_dir / "optimization" / "report.json"
+    opt_report_path = run_dir / "optimization" / "report_pseed.json"
     opt_report = None
     if opt_report_path.exists():
         with open(opt_report_path) as f:
@@ -314,7 +314,7 @@ def main():
 
     print(f"wrote charts to {out_dir}")
     if opt_report is None:
-        print("no optimization/report.json found; skipped the optimization comparison chart")
+        print("no optimization/report_pseed.json found; skipped the optimization comparison chart")
     if choice_reports is None:
         print("choice-search reports incomplete; skipped the choice-search chart")
 
