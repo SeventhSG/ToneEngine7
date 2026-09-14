@@ -233,7 +233,7 @@ This project is still in its early stages. The architecture, models, datasets, a
 The first major milestone is simple:
 > Train a model that can analyze an unseen generated guitar tone, predict the parameters that created it, and reproduce that tone.
 
-**First milestone: proven on a single virtual amp, including the optimization loop.** Everything after this milestone (multi-stage signal chains, real recordings, song input) is still ahead.
+**First milestone: proven on a single virtual amp, including the optimization loop.** Stage 2 (signal chains) is in progress: an overdrive, amp, and cabinet chain is working, and the optimizer can now change which amp is in the chain as well as its knobs (see Experiment 2). Real recordings and song input are still ahead.
 
 ---
 
@@ -324,25 +324,65 @@ Cabinet identification is essentially solved, because a cabinet IR leaves a stro
 </tr>
 </table>
 
-The optimization loop from Experiment 1 carries over here too, refining the continuous knobs with the discrete choices (amp, cabinet, overdrive on/off) held fixed at whatever the CNN predicted. On a 100-example sample of the test set (a smaller sample than Experiment 1's full 1,000, because of system memory constraints hit during this run, not a code limitation):
+The optimization loop from Experiment 1 carries over here too, refining the continuous knobs with the discrete choices (amp, cabinet, overdrive on/off) held fixed at whatever the CNN predicted. Across all 1,000 test examples, with the same budget of 300 renders per example:
 
 | Metric | CNN prediction only | After optimization |
 | :--- | :---: | :---: |
-| Continuous knob MAE (0-10 scale) | 2.07 | **1.48** |
-| Audio similarity | 0.40 | **0.81** |
-| Test examples that improved | - | **100%** |
+| Continuous knob MAE (0-10 scale) | 2.07 | **1.47** |
+| Audio similarity | 0.41 | **0.81** |
+| Test examples that improved | - | **99.9%** |
 
-That the continuous knobs can still be pushed this far even when roughly 40% of the amp choices and overdrive flags are wrong is itself informative: the amp voicings and cabinets are similar enough that a wrong discrete choice can often still be compensated for by re-tuning the tone stack. The optimizer does not yet search the discrete choices themselves (try the runner-up amp, try flipping overdrive) and only refines the continuous knobs around whatever the CNN guessed; extending it to a joint discrete-and-continuous search is a natural next step.
+That the continuous knobs can still be pushed this far even when roughly 40% of the amp choices and overdrive flags are wrong is itself informative: a wrong amp can often be partly compensated for by re-tuning the tone stack. Giving the same 300-render loop the *true* amp, cabinet, and overdrive state only reaches 0.83 on the same 1,000 examples, so at this budget the wrong choices cost about 0.03 of similarity.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_optimization_comparison_dark.png">
-  <img src="docs/assets/exp2_optimization_comparison_light.png" alt="Bar chart comparing audio similarity and continuous knob error before and after the optimization loop, across 100 test examples">
+  <img src="docs/assets/exp2_optimization_comparison_light.png" alt="Bar chart comparing audio similarity and continuous knob error before and after the optimization loop, across 1000 test examples">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_reconstruction_example_dark.png">
   <img src="docs/assets/exp2_reconstruction_example_light.png" alt="Spectrogram of a reference test example next to the CNN-only reconstruction and the reconstruction after optimization, for Experiment 2's signal chain">
 </picture>
+
+### Letting the optimizer change the amp
+
+The CNN picks the wrong amp about 4 times in 10, and the loop above never questions that choice. So the optimizer can now also try the other amps: it runs a CMA-ES search on each amp with 300 renders, keeps whichever reached the lowest loss, and spends the rest of the budget refining that one (`optimization/optimizer.py`, `optimize_with_choices`). The cabinet and overdrive calls stay as the CNN made them (see below for why).
+
+Compared on the same 200 test examples, all at the same total budget of about 1,800 renders per example, with a run given the *true* amp, cabinet, and overdrive as a ceiling:
+
+| | Audio similarity | Amp identified | Knob MAE (0-10) |
+| :--- | :---: | :---: | :---: |
+| CNN prediction only | 0.41 | 53.5% | 2.07 |
+| Choices fixed, 300 renders | 0.81 | 53.5% | 1.47 |
+| Choices fixed, 1,800 renders | 0.90 | 53.5% | 0.94 |
+| **Amp search, 1,800 renders** | **0.93** | **74.5%** | **0.74** |
+| True choices, 1,800 renders (ceiling) | 0.96 | 100% | 0.43 |
+
+The amp search gains +0.028 similarity over keeping the CNN's choice at equal compute (95% bootstrap interval +0.018 to +0.040), which is about half the distance to the ceiling, and it raises amp identification from 53.5% to 74.5% using nothing but render-and-compare. The average hides a trade-off, though: on the 93 examples where the CNN's amp was wrong the search gains +0.081, while on the 107 where it was right it loses 0.018, because the winning amp only gets about 1,200 of the 1,800 renders instead of all of them. Example by example, the search beats keeping the CNN's choice on 43% of the test set and is slightly worse on the other 57% (some of that per-example spread is CMA-ES run-to-run randomness, see the note below). Only searching when the CNN is unsure of its amp call could keep most of the gain without that cost; that has not been tried yet.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp2_choice_search_dark.png">
+  <img src="docs/assets/exp2_choice_search_light.png" alt="Two bar charts on the same 200 test examples. Audio similarity: choices fixed at 300 renders 0.81, choices fixed at 1800 renders 0.90, amp search at 1800 renders 0.93, true choices at 1800 renders 0.96. Amp identified correctly: 53.5%, 53.5%, 74.5%, 100%, against a chance level of 33%">
+</picture>
+
+The schedule was picked on the validation split (100 examples per row), so the test set played no part in choosing it. Most of what was tried did not work:
+
+| Search schedule (validation) | Renders | Audio similarity | Amp identified |
+| :--- | :---: | :---: | :---: |
+| Choices fixed | 310 | 0.820 | 56% |
+| Top 6 amp/cabinet/overdrive combinations, 21 renders each, best 2 refined | 296 | 0.777 | 53% |
+| Top 2 combinations, 101 renders each | 292 | 0.797 | 58% |
+| Every amp, 61 renders each | 293 | 0.776 | 49% |
+| True choices (ceiling) | 310 | 0.854 | 100% |
+| Choices fixed | 1,810 | 0.911 | 56% |
+| Top 6 combinations, 300 renders each | 1,796 | 0.890 | 85% |
+| Every amp, 150 renders each | 1,793 | 0.905 | 54% |
+| **Every amp, 300 renders each** | 1,793 | **0.935** | 78% |
+| True choices (ceiling) | 1,810 | 0.964 | 100% |
+
+Two lessons came out of this. First, **at a budget of 300 renders, every search schedule tried lost** to trusting the CNN. A short search on each candidate ranks them by how close each one happened to start, not by how close it could get, and whatever it does pick gets less refinement. Screening needs roughly 300 renders per candidate before it reliably separates the amps, so the search only pays off with a larger total budget. Second, **overdrive on/off is only weakly identifiable from the sound**: given the true amp and cabinet and 300 renders each, the true overdrive state reached the lower loss in only 62 of 100 validation examples. A low-drive pedal is mostly a level change, which the amp's gain knob can reproduce. Searching over it spends budget for little return, which is why the final search varies only the amp.
+
+**Reproducibility note.** The `cma` library treats a seed of 0 as "seed from the clock", and the optimizer passed 0, so every optimization result above (and Experiment 1's) came from a randomly seeded search even though `--seed 0` was set. That is fixed now (`optimization/optimizer.py`, `_cma_seed`) and verified: two runs now match to 10 decimal places. The reported averages are still sound estimates, since each example was a genuine search with its own random seed. Two runs of the same 100 test examples before the fix differed by up to 0.15 similarity on single examples, while their averages differed by only 0.002. Rerunning the commands below will reproduce the averages within that noise, not the per-example values in the committed reports.
 
 ---
 
@@ -372,9 +412,10 @@ training/
 evaluation/     shared metrics, comparison plots, and README chart generation
                 (make_readme_charts.py for Experiment 1, _exp2 for Experiment 2)
 optimization/   CMA-ES refinement of the CNN's predicted parameters
-                (evaluate_optimization.py / _exp2.py); Experiment 2's discrete
-                choices (amp, cabinet, overdrive on/off) are held fixed during
-                this search, only the continuous knobs are refined
+                (evaluate_optimization.py / _exp2.py); for Experiment 2 the
+                discrete choices can be held fixed, searched (every amp is
+                tried, the best one refined), or set to the true ones as a
+                ceiling (--mode fixed / search / oracle)
 configs/        experiment configs
 data/           generated datasets (not versioned)
 ```
@@ -396,6 +437,10 @@ python -m training.generate_dataset_exp2 --n-examples 10000 --out-name exp2_smok
 python -m training.train_exp2 --config configs/experiment2.yaml
 python -m training.evaluate_exp2 --config configs/experiment2.yaml --checkpoint best.pt
 python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --n-examples 1000
+# amp search vs. fixed choices vs. the true-choice ceiling, all at 1800 renders per example
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode search --max-evals 1800 --n-examples 200 --tag b1800
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode fixed --max-evals 1800 --n-examples 200 --tag b1800
+python -m optimization.evaluate_optimization_exp2 --config configs/experiment2.yaml --mode oracle --max-evals 1800 --n-examples 200 --tag b1800
 python -m evaluation.make_readme_charts_exp2 --run exp2_smoke
 ```
 

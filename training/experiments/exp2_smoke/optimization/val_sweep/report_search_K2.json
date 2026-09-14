@@ -1,0 +1,6330 @@
+{
+  "overall": {
+    "mode": "search",
+    "split": "val",
+    "n_examples": 100,
+    "max_evals": 300,
+    "n_evals_mean": 292.0,
+    "seconds": 198.44397950172424,
+    "continuous_mae_before_mean": 2.079963196516037,
+    "continuous_mae_after_mean": 1.551010704796136,
+    "similarity_before_mean": 0.43185008818538007,
+    "similarity_after_mean": 0.7973517896657043,
+    "similarity_improved_fraction": 1.0,
+    "overdrive_accuracy_before": 0.65,
+    "amp_accuracy_before": 0.56,
+    "cabinet_accuracy_before": 1.0,
+    "overdrive_accuracy_after": 0.59,
+    "amp_accuracy_after": 0.58,
+    "cabinet_accuracy_after": 1.0,
+    "schedule": {
+      "n_candidates": 2,
+      "screen_evals": 101,
+      "keep": 1,
+      "mid_evals": 0
+    },
+    "winner_changed_choice_fraction": 0.57
+  },
+  "per_example": [
+    {
+      "id": "000000",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.44132631520430243
+          ],
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.4356869508822759
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.4356869508822759
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.3957244157791138,
+        "similarity": 0.49719777155905776,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.9102873415637657,
+        "similarity": 0.7891538227463023,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000001",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.40027807652950287
+          ],
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.4305500040451686
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.40027807652950287
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.678600788116455,
+        "similarity": 0.49842030544776894,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 3.1545857417947416,
+        "similarity": 0.7527188010534757,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000002",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.6740810523430507
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.6691585406661034
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.6691585406661034
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 3.203371047973633,
+        "similarity": 0.47744362835107634,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.758847129724798,
+        "similarity": 0.606303768660464,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000003",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.29859255254268646
+          ],
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.21983799835046133
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.21983799835046133
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.353410243988037,
+        "similarity": 0.46774045659610813,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.9697018185632346,
+        "similarity": 0.8197809884199874,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000004",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.519127073387305
+          ],
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.18417055656512576
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.18417055656512576
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.2301079034805298,
+        "similarity": 0.4095030329610183,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.3934242479746448,
+        "similarity": 0.8444729472928785,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000005",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.3289520119627317
+          ],
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.2746880998214086
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.2746880998214086
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.912102222442627,
+        "similarity": 0.5314228359422977,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.2910026438289925,
+        "similarity": 0.7845056372143947,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000006",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.4255026231209437
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.5222271134455998
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.4255026231209437
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3314623832702637,
+        "similarity": 0.2963533271404798,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.3615184229479829,
+        "similarity": 0.8337368254291327,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000007",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.3806423172354698
+          ],
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.2703798698882262
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.2703798698882262
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9447976350784302,
+        "similarity": 0.6255783810148646,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.469565740987165,
+        "similarity": 0.789519651757861,
+        "choice": [
+          0,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000008",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              2
+            ],
+            0.38956908136606216
+          ],
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            0.468822181224823
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              2
+            ],
+            0.38956908136606216
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.300081491470337,
+        "similarity": 0.3798118550800421,
+        "choice": [
+          1,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.395102243280059,
+        "similarity": 0.759500373387727,
+        "choice": [
+          1,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000009",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.2248341167966525
+          ],
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.3667541816830635
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.2248341167966525
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.213043212890625,
+        "similarity": 0.21949053662628076,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.4140719267419442,
+        "similarity": 0.8164370883261577,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000010",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.20339507112900418
+          ],
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.5159002939860026
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.20339507112900418
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 3.032540798187256,
+        "similarity": 0.5015267491962545,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.423281731331759,
+        "similarity": 0.8518534065833884,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000011",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.43657036622365314
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.36423376202583313
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.36423376202583313
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.842941403388977,
+        "similarity": 0.40771589666414826,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.1909039336835316,
+        "similarity": 0.7722144357536065,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000012",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              2
+            ],
+            0.2783027117451032
+          ],
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.3288327232003212
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              2
+            ],
+            0.2783027117451032
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 3.0346310138702393,
+        "similarity": 0.5438786682620783,
+        "choice": [
+          1,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.0154939335759194,
+        "similarity": 0.8259741161738886,
+        "choice": [
+          1,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000013",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.35293160378932953
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.288695327937603
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.288695327937603
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.612689733505249,
+        "similarity": 0.59153773623482,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.6223794647476992,
+        "similarity": 0.8402400242412911,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000014",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.18090863339602947
+          ],
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.19460795323053998
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.18090863339602947
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.6005361080169678,
+        "similarity": 0.7412150789143906,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5529983368017641,
+        "similarity": 0.8897679390728482,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000015",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.42703271160523093
+          ],
+          [
+            [
+              1,
+              0,
+              3
+            ],
+            0.22061854104200998
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              3
+            ],
+            0.22061854104200998
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.0902554988861084,
+        "similarity": 0.4470915479644014,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.2641924472808428,
+        "similarity": 0.8192567672668041,
+        "choice": [
+          1,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000016",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.26439165572325385
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.2635299128790697
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.2635299128790697
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9119744300842285,
+        "similarity": 0.42607377785039147,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.5931352400049814,
+        "similarity": 0.7964786612725572,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000017",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.44243288040161133
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.229438416659832
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.229438416659832
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.2716460227966309,
+        "similarity": 0.28768333614315056,
+        "choice": [
+          1,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.35708908959745084,
+        "similarity": 0.8438001617966943,
+        "choice": [
+          0,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000018",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.8093195259571075
+          ],
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.7004691561063131
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.7004691561063131
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.5607221126556396,
+        "similarity": 0.34230494478038787,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 3.468419946344262,
+        "similarity": 0.6336990297736563,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000019",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            0.22353820751110715
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.3252241189281146
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            0.22353820751110715
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.8354156017303467,
+        "similarity": 0.5029708660842246,
+        "choice": [
+          1,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.158196482186157,
+        "similarity": 0.8586242461948068,
+        "choice": [
+          1,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000020",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.21415461599826813
+          ],
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.4178565094868342
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.21415461599826813
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 0.9305465221405029,
+        "similarity": 0.40328417774930536,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.7814724262832773,
+        "similarity": 0.8550128218340743,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000021",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.5729933679103851
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            0.2876359770695368
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            0.2876359770695368
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.0129153728485107,
+        "similarity": 0.3598764573777475,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.4875237589190407,
+        "similarity": 0.8794609786642575,
+        "choice": [
+          1,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000022",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.29807209968566895
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.5171555181344349
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.29807209968566895
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.1677958965301514,
+        "similarity": 0.46944376512724373,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.6694128287580416,
+        "similarity": 0.7703732329214628,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000023",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.8322785298029582
+          ],
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.33834315588076913
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.33834315588076913
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.5548720359802246,
+        "similarity": 0.28097023812600763,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.9104607878147108,
+        "similarity": 0.8259440909378811,
+        "choice": [
+          0,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000024",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.7052608678738276
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.3619922573367755
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.3619922573367755
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.6246707439422607,
+        "similarity": 0.41361686332643044,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.8569536620319163,
+        "similarity": 0.8262216764858997,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000025",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.6307390630245209
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.36268350978692376
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.36268350978692376
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.642221212387085,
+        "similarity": 0.3367922452875906,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.6338144167377724,
+        "similarity": 0.7602845061254881,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000026",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.3731143921613693
+          ],
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.5838751321037611
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.3731143921613693
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.778426170349121,
+        "similarity": 0.463470756599708,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.163463851803351,
+        "similarity": 0.7589704043664227,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000027",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.4789635638395945
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.31782046953837073
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.31782046953837073
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.471325635910034,
+        "similarity": 0.3460463206026627,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.9362431141923931,
+        "similarity": 0.817297579092272,
+        "choice": [
+          0,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000028",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.2675884837905566
+          ],
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.2437790259718895
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.2437790259718895
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3389225006103516,
+        "similarity": 0.4479567964845025,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.0796843965976322,
+        "similarity": 0.8298107696472463,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000029",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.41788575053215027
+          ],
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.1811324159304301
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.1811324159304301
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.296168327331543,
+        "similarity": 0.43742827710439086,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.642912398045057,
+        "similarity": 0.8601523298183968,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000030",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.3355134427547455
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.3773786500096321
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.3355134427547455
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.198625326156616,
+        "similarity": 0.47639111838589965,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5591485789393558,
+        "similarity": 0.817879249477767,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000031",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.5764656737446785
+          ],
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.272819376240174
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.272819376240174
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3903987407684326,
+        "similarity": 0.42198020130035063,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.0187520686749867,
+        "similarity": 0.8453664132172247,
+        "choice": [
+          0,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000032",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.4255238311986128
+          ],
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.6574836572011312
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.4255238311986128
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.2540698051452637,
+        "similarity": 0.6004625062230852,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.1858225292945954,
+        "similarity": 0.7014965152558532,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000033",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.38559557000796
+          ],
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.40880821645259857
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.38559557000796
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.4271750450134277,
+        "similarity": 0.4986458241320191,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.4861911314977405,
+        "similarity": 0.8190227983388946,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000034",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.3920607616504034
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.32166643937428796
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.32166643937428796
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.921635627746582,
+        "similarity": 0.4116149402155213,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5077460403244982,
+        "similarity": 0.8421796439956487,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000035",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.23489454140265784
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.39984298311173916
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.23489454140265784
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.2743794918060303,
+        "similarity": 0.31760507690583833,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.5445374943994583,
+        "similarity": 0.8852142848332162,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000036",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.30914276341597235
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.3603474174936613
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.30914276341597235
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.1226696968078613,
+        "similarity": 0.5782266038714525,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.7366147876797915,
+        "similarity": 0.7638586317283532,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000037",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.6611949304739635
+          ],
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.504508818189303
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.504508818189303
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.0777690410614014,
+        "similarity": 0.458763175781583,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.1557373551539767,
+        "similarity": 0.7437030970619036,
+        "choice": [
+          1,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000038",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.41016941517591476
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.472979818781217
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.41016941517591476
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.0716354846954346,
+        "similarity": 0.5017439167249202,
+        "choice": [
+          0,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.8502510593188053,
+        "similarity": 0.7143030608750208,
+        "choice": [
+          0,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000039",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.3056381742159525
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.25789807985226315
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.25789807985226315
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.4575167894363403,
+        "similarity": 0.4669242108946986,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5110686634037422,
+        "similarity": 0.8255128420818004,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000040",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.15634938205281895
+          ],
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.284605177740256
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.15634938205281895
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9491158723831177,
+        "similarity": 0.13774708717348924,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.6750787801221652,
+        "similarity": 0.9043133255216013,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000041",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.4174637297789256
+          ],
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.36207541326681775
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.36207541326681775
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.8473623991012573,
+        "similarity": 0.3147428713105126,
+        "choice": [
+          0,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5147867094274299,
+        "similarity": 0.9033052930559907,
+        "choice": [
+          1,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000042",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.45702745020389557
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.2768900617957115
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.2768900617957115
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.894919753074646,
+        "similarity": 0.5567442036729048,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.052026568844924,
+        "similarity": 0.8444931930947265,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000043",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.5462476412455242
+          ],
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.6310545814534029
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.5462476412455242
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.1387012004852295,
+        "similarity": 0.4320155642051401,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 3.234247089267639,
+        "similarity": 0.6729690869556675,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000044",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.5033280650774637
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.3718830620249112
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.3718830620249112
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3152875900268555,
+        "similarity": 0.5890066348026423,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.5803658922876394,
+        "similarity": 0.7562333640892096,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000045",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.28083764140804607
+          ],
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.35260303815205896
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.28083764140804607
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9653100967407227,
+        "similarity": 0.15541838946515085,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.5217696479409583,
+        "similarity": 0.8689745305506283,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000046",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.42638587454954785
+          ],
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.3708885411421458
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.3708885411421458
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.2034502029418945,
+        "similarity": 0.4162682494630725,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.4168444247596584,
+        "similarity": 0.8402837978539794,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000047",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.46922450761000317
+          ],
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.3756328572829564
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.3756328572829564
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 3.0930261611938477,
+        "similarity": 0.41842551103613523,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.457041379585416,
+        "similarity": 0.8208829018036773,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000048",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.40649963915348053
+          ],
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.3812381674846014
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.3812381674846014
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.698633909225464,
+        "similarity": 0.3386916118026764,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.1841454948648167,
+        "similarity": 0.7749135637087882,
+        "choice": [
+          1,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000049",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.34756332635879517
+          ],
+          [
+            [
+              1,
+              0,
+              3
+            ],
+            0.69106129805247
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.34756332635879517
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3327300548553467,
+        "similarity": 0.3946799140527742,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.7087625396884454,
+        "similarity": 0.8826974886466893,
+        "choice": [
+          1,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000050",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.6205753907561302
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.6391810749967893
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.6205753907561302
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.1433005332946777,
+        "similarity": 0.35194808037243597,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.300242196245957,
+        "similarity": 0.6242779090806176,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000051",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              2
+            ],
+            0.6496090367436409
+          ],
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            0.6907568673292795
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              2
+            ],
+            0.6496090367436409
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.6322588920593262,
+        "similarity": 0.41011884138628846,
+        "choice": [
+          1,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.6093081339993983,
+        "similarity": 0.7190422263989935,
+        "choice": [
+          1,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000052",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.19406438991427422
+          ],
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.31436435381571454
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.19406438991427422
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3979744911193848,
+        "similarity": 0.5044456197251663,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.3788945049701,
+        "similarity": 0.8374757747124452,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000053",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.6689412991205852
+          ],
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.6186381305257479
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.6186381305257479
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.059715509414673,
+        "similarity": 0.29746792575699,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.362887624997223,
+        "similarity": 0.6178033132551939,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000054",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.45234214762846625
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.2924838413794835
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.2924838413794835
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.562234878540039,
+        "similarity": 0.5133921579064641,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.8247607053766497,
+        "similarity": 0.8129881023397927,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000055",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.3125374764204025
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.25694359093904495
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.25694359093904495
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9739018678665161,
+        "similarity": 0.33476077558106715,
+        "choice": [
+          0,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.9399058311571988,
+        "similarity": 0.824679237847982,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000056",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.21220774203538895
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.20243432869513828
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.20243432869513828
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.3315653800964355,
+        "similarity": 0.4283565946695972,
+        "choice": [
+          0,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.2016667518393622,
+        "similarity": 0.834042919797182,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000057",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.4554863919814428
+          ],
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.9099377294381459
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.4554863919814428
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.003720998764038,
+        "similarity": 0.20725284961896207,
+        "choice": [
+          0,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.3201573705776704,
+        "similarity": 0.7515748396870786,
+        "choice": [
+          0,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000058",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.32188187042872113
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.41717285911242163
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.32188187042872113
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.455230712890625,
+        "similarity": 0.4186276466020034,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.7335044508955784,
+        "similarity": 0.802220645540225,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000059",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.12963726744055748
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.0883181020617485
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.0883181020617485
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.2905277013778687,
+        "similarity": 0.5469436687168197,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.8637146300742136,
+        "similarity": 0.9188490002192966,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000060",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.3016286368171374
+          ],
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.30414772282044095
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.3016286368171374
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.146725654602051,
+        "similarity": 0.2238227358494543,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.4681940614836015,
+        "similarity": 0.8621864390735158,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000061",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.5670902828375498
+          ],
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.5281867931286494
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.5281867931286494
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.6216542720794678,
+        "similarity": 0.39019801951490607,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.353559181799976,
+        "similarity": 0.8196447029428033,
+        "choice": [
+          1,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000062",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.2447936050593853
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.40180868903795874
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.2447936050593853
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.288681745529175,
+        "similarity": 0.5675229602624989,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5218439880721222,
+        "similarity": 0.8145307462463528,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000063",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.4605174772441387
+          ],
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.5643175256748995
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.4605174772441387
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.2623777389526367,
+        "similarity": 0.32979924410135925,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.912330211572518,
+        "similarity": 0.6931206969117626,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000064",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.12966931176682314
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.38045067091782886
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.12966931176682314
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.7718416452407837,
+        "similarity": 0.3908996918101883,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.7682487118519438,
+        "similarity": 0.8852148054159158,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000065",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.4769872749845187
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.4644887447357178
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.4644887447357178
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.182281255722046,
+        "similarity": 0.4800418569822158,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.56114974197723,
+        "similarity": 0.7164540016898875,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000066",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.36362410833438236
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.18279043585062027
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.18279043585062027
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.8143848180770874,
+        "similarity": 0.4690678694566006,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.8086898821550199,
+        "similarity": 0.8637816612344296,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000067",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.34927098204692203
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.35561476399501163
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.34927098204692203
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.8542451858520508,
+        "similarity": 0.7060950360524382,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.0820853516993516,
+        "similarity": 0.8756360968056642,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000068",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.5008535962551832
+          ],
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.4570905702809493
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.4570905702809493
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.4043772220611572,
+        "similarity": 0.441701950985326,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.9699241569484807,
+        "similarity": 0.6968121274636079,
+        "choice": [
+          0,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000069",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.30100663254658383
+          ],
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.3054323544104894
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.30100663254658383
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.2590442895889282,
+        "similarity": 0.5496600562698924,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.380972472422224,
+        "similarity": 0.7686355895377759,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000070",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.4250466600060463
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.368160734574
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.368160734574
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9126944541931152,
+        "similarity": 0.5360236658467804,
+        "choice": [
+          0,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.8957461521040347,
+        "similarity": 0.7976639092056256,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000071",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.2016117349267006
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.4765538051724434
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.2016117349267006
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 3.318307876586914,
+        "similarity": 0.3891691365623241,
+        "choice": [
+          1,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.9781030222905804,
+        "similarity": 0.870668189986267,
+        "choice": [
+          1,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000072",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.3520059362053871
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.33183391640583676
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.33183391640583676
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.7769551277160645,
+        "similarity": 0.2793971463144454,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.2631317488851015,
+        "similarity": 0.8886104865326839,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000073",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.4346815993388494
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.42602086067199707
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.42602086067199707
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.182708740234375,
+        "similarity": 0.39116480206539445,
+        "choice": [
+          1,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.4072757286756874,
+        "similarity": 0.8484021229324809,
+        "choice": [
+          0,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000074",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.28828217337528866
+          ],
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.3235197365283966
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.28828217337528866
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9165643453598022,
+        "similarity": 0.42317118389566627,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.038103110217256,
+        "similarity": 0.827978943562866,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000075",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.4509626428286234
+          ],
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.37193844094872475
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            0.37193844094872475
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.049329996109009,
+        "similarity": 0.2956858071585328,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 3.0796952065734984,
+        "similarity": 0.7570260587060493,
+        "choice": [
+          0,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000076",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.11521199252456427
+          ],
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.39787572373946506
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.11521199252456427
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9374297857284546,
+        "similarity": 0.4272780884674552,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.3256492631440111,
+        "similarity": 0.8966905007327326,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000077",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.36743107438087463
+          ],
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.6607656280199687
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.36743107438087463
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3997812271118164,
+        "similarity": 0.2794386967161637,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.895615529991436,
+        "similarity": 0.8026775684615408,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000078",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.3163791000843048
+          ],
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.4274340122938156
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.3163791000843048
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9978257417678833,
+        "similarity": 0.44444921679185606,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.3918350891290963,
+        "similarity": 0.7707567968698038,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000079",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.16011102000872293
+          ],
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.36666943629582727
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.16011102000872293
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.2271289825439453,
+        "similarity": 0.5563112394147789,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.2279788032692498,
+        "similarity": 0.8736578670724228,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000080",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.4135933419068655
+          ],
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.40479900439580285
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.40479900439580285
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.6255371570587158,
+        "similarity": 0.4101346553149272,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.7048460783387505,
+        "similarity": 0.7641967347852185,
+        "choice": [
+          0,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000081",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.6824824164311091
+          ],
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.4691730091969172
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.4691730091969172
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.7434422969818115,
+        "similarity": 0.3703907605330048,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.3197220307369517,
+        "similarity": 0.7218220521090415,
+        "choice": [
+          1,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000082",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.3107317164540291
+          ],
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.29300380746523536
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.29300380746523536
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.0711610317230225,
+        "similarity": 0.6257205212339862,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.597466408608286,
+        "similarity": 0.8216371725706874,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000083",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.46108119686444604
+          ],
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.463490809003512
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.46108119686444604
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.4522364139556885,
+        "similarity": 0.2214558147372492,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.274516933010961,
+        "similarity": 0.8253961622725329,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000084",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            0.36349253356456757
+          ],
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.33848483860492706
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            0.33848483860492706
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9617594480514526,
+        "similarity": 0.5393829348342369,
+        "choice": [
+          0,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.0596281872749105,
+        "similarity": 0.7578213218631229,
+        "choice": [
+          1,
+          0,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000085",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            0.4077301323413849
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.3766143098473549
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            0.3766143098473549
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.008723020553589,
+        "similarity": 0.46152869998540774,
+        "choice": [
+          1,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5908190267976898,
+        "similarity": 0.7713772575602241,
+        "choice": [
+          0,
+          1,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000086",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              0
+            ],
+            0.136483962337176
+          ],
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.13513064881165823
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              2,
+              0
+            ],
+            0.13513064881165823
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.4260798692703247,
+        "similarity": 0.6748286619134837,
+        "choice": [
+          0,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.342380849176705,
+        "similarity": 0.9016548789379272,
+        "choice": [
+          1,
+          2,
+          0
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000087",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.45516073455413186
+          ],
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.4313440751284361
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.4313440751284361
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9150949716567993,
+        "similarity": 0.367253810980857,
+        "choice": [
+          0,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.6419779118963636,
+        "similarity": 0.808825523163675,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000088",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.5627472028136253
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.8247160067160925
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.5627472028136253
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.9893250465393066,
+        "similarity": 0.3930361399070698,
+        "choice": [
+          1,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 3.3354075845978386,
+        "similarity": 0.6676807341034662,
+        "choice": [
+          1,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000089",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            0.5950187196334203
+          ],
+          [
+            [
+              1,
+              0,
+              3
+            ],
+            0.4752396196126938
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              3
+            ],
+            0.4752396196126938
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.5962462425231934,
+        "similarity": 0.437955231094308,
+        "choice": [
+          1,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.7441507952699684,
+        "similarity": 0.7038553519309588,
+        "choice": [
+          1,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000090",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.7296238578855991
+          ],
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.7547506981839737
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            0.7296238578855991
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.120616912841797,
+        "similarity": 0.49719835910206295,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 2.1564050312774015,
+        "similarity": 0.6291290725826604,
+        "choice": [
+          0,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000091",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.45223263402779895
+          ],
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.2534310817718506
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.2534310817718506
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.9245308637619019,
+        "similarity": 0.34017041080669724,
+        "choice": [
+          0,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.45085197227097185,
+        "similarity": 0.8210500285714586,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000092",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.48555148641268414
+          ],
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.43624506890773773
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.43624506890773773
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.136362314224243,
+        "similarity": 0.4570799373124449,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.660897321431548,
+        "similarity": 0.7803279403157275,
+        "choice": [
+          1,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000093",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.686619852979978
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.4315198014179865
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.4315198014179865
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.0021119117736816,
+        "similarity": 0.2211907882243269,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.5268271674037048,
+        "similarity": 0.7189597762604155,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000094",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              2
+            ],
+            0.5084938456614813
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.5008957882722219
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            0.5008957882722219
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.7366199493408203,
+        "similarity": 0.4240977458948579,
+        "choice": [
+          0,
+          2,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.246215910845759,
+        "similarity": 0.7192004944330787,
+        "choice": [
+          0,
+          0,
+          2
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000095",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.49333142613371217
+          ],
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            0.5485385979215304
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              1,
+              2
+            ],
+            0.49333142613371217
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.452612280845642,
+        "similarity": 0.4519434134819783,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.6089391810558961,
+        "similarity": 0.6815003643249881,
+        "choice": [
+          1,
+          1,
+          2
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000096",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              2,
+              1
+            ],
+            0.6962035770217577
+          ],
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.421962670981884
+          ]
+        ],
+        "mid": [
+          [
+            [
+              1,
+              0,
+              1
+            ],
+            0.421962670981884
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 2.3564789295196533,
+        "similarity": 0.38785227274645,
+        "choice": [
+          1,
+          2,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.0044431738126351,
+        "similarity": 0.7613271200039895,
+        "choice": [
+          1,
+          0,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000097",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              2,
+              3
+            ],
+            0.26673586418231326
+          ],
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.2641526361306508
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              0,
+              3
+            ],
+            0.2641526361306508
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.7308783531188965,
+        "similarity": 0.5576456203885537,
+        "choice": [
+          0,
+          2,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 1,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 0.6265716439701146,
+        "similarity": 0.8583044984080092,
+        "choice": [
+          0,
+          0,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000098",
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            0.48839058478673303
+          ],
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.33046525716781616
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            0.33046525716781616
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.91999351978302,
+        "similarity": 0.5476653135452909,
+        "choice": [
+          1,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.0942112610942314,
+        "similarity": 0.821340777312458,
+        "choice": [
+          0,
+          1,
+          1
+        ],
+        "correct": {
+          "overdrive": 0,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    },
+    {
+      "id": "000099",
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.2809465577205022
+          ],
+          [
+            [
+              1,
+              1,
+              3
+            ],
+            0.46579155822594964
+          ]
+        ],
+        "mid": [
+          [
+            [
+              0,
+              1,
+              3
+            ],
+            0.2809465577205022
+          ]
+        ]
+      },
+      "n_evals": 292,
+      "before": {
+        "continuous_mae": 1.8434072732925415,
+        "similarity": 0.5743209196280479,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      },
+      "after": {
+        "continuous_mae": 1.422540656726173,
+        "similarity": 0.7874982603398398,
+        "choice": [
+          0,
+          1,
+          3
+        ],
+        "correct": {
+          "overdrive": 1,
+          "amp": 0,
+          "cabinet": 1
+        }
+      }
+    }
+  ]
+}

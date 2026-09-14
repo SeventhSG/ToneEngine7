@@ -116,6 +116,85 @@ def plot_optimization_comparison(opt_report, out_dir, theme_name):
     plt.close(fig)
 
 
+def load_choice_search_reports(opt_dir):
+    """The four runs the choice-search chart compares, restricted to the test
+    examples every one of them covers (the 1800-render runs use a smaller
+    sample than the 300-render run). Returns None if any run is missing."""
+    names = {
+        "fixed_300": "report.json",
+        "fixed_1800": "report_b1800.json",
+        "search_1800": "report_search_b1800.json",
+        "oracle_1800": "report_oracle_b1800.json",
+    }
+    paths = {key: opt_dir / name for key, name in names.items()}
+    if not all(p.exists() for p in paths.values()):
+        return None
+    per_example = {}
+    for key, path in paths.items():
+        with open(path) as f:
+            per_example[key] = {e["id"]: e for e in json.load(f)["per_example"]}
+    shared_ids = sorted(set.intersection(*(set(v) for v in per_example.values())))
+    return {key: [v[i] for i in shared_ids] for key, v in per_example.items()}
+
+
+def plot_choice_search(reports, out_dir, theme_name):
+    theme = THEMES[theme_name]
+    n = len(reports["fixed_300"])
+
+    def mean(key, fn):
+        return float(np.mean([fn(e) for e in reports[key]]))
+
+    keys = ["fixed_300", "fixed_1800", "search_1800", "oracle_1800"]
+    labels = ["choices fixed\n300 renders", "choices fixed\n1800 renders",
+              "amp search\n1800 renders", "true choices\n1800 renders\n(ceiling)"]
+    colors = [theme["series_1"], theme["series_1"], theme["series_2"], None]
+    cnn_similarity = mean("fixed_300", lambda e: e["before"]["similarity"])
+
+    panels = [
+        ("audio similarity after optimization", lambda e: e["after"]["similarity"],
+         cnn_similarity, f"CNN prediction only, before any optimization ({cnn_similarity:.2f})",
+         lambda v: f"{v:.2f}"),
+        ("amp identified correctly", lambda e: e["after"]["correct"]["amp"],
+         1 / 3, "chance, 3 amps (33%)", lambda v: f"{v:.1%}".replace(".0%", "%")),
+    ]
+
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), dpi=160)
+    for ax, (title, fn, ref_value, ref_label, fmt) in zip(axes, panels):
+        style_axes(fig, ax, theme)
+        ax.grid(axis="x", visible=False)
+        values = [mean(k, fn) for k in keys]
+        x = np.arange(len(keys))
+        bars = []
+        for xi, value, color in zip(x, values, colors):
+            if color is None:
+                # the ceiling is a reference, not a method: outline + hatch instead of a solid fill
+                bars += ax.bar(xi, value, width=0.6, color=theme["surface"], edgecolor=theme["text_secondary"],
+                               hatch="///", linewidth=1.2, zorder=3)
+            else:
+                bars += ax.bar(xi, value, width=0.6, color=color, zorder=3)
+        ax.axhline(ref_value, color=theme["text_secondary"], linewidth=1.2, linestyle="--", zorder=4,
+                   label=ref_label)
+        ax.legend(frameon=False, loc="upper left", fontsize=8.5, labelcolor=theme["text_secondary"],
+                  handlelength=2.2, borderaxespad=0.2)
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, fontsize=8.5)
+        ax.set_xlim(-0.6, len(keys) - 0.4)
+        ax.set_ylim(0, 1.25)
+        ticks = [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+        ax.set_yticks(ticks)
+        ax.set_yticklabels([fmt(t) for t in ticks])
+        ax.set_title(title, fontsize=10)
+        for bar, value in zip(bars, values):
+            ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.015, fmt(value),
+                    ha="center", va="bottom", color=theme["text_primary"], fontsize=10, zorder=5)
+
+    fig.suptitle(f"Experiment 2: letting the optimizer change the amp (same {n} test examples in every bar)",
+                 color=theme["text_primary"], fontsize=12)
+    fig.tight_layout()
+    fig.savefig(out_dir / f"exp2_choice_search_{theme_name}.png", facecolor=theme["surface"])
+    plt.close(fig)
+
+
 def plot_reconstruction_example(config_path, run_dir, out_dir, theme_name, seed=0):
     theme = THEMES[theme_name]
     with open(config_path) as f:
@@ -199,6 +278,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", type=str, required=True)
     parser.add_argument("--config", type=str, default=None)
+    parser.add_argument("--only-choice-search", action="store_true",
+                        help="skip the charts that re-render audio, draw only the choice-search comparison")
     args = parser.parse_args()
 
     run_dir = REPO_ROOT / "training" / "experiments" / args.run
@@ -217,17 +298,25 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     config_path = Path(args.config) if args.config else REPO_ROOT / "configs" / "experiment2.yaml"
+    choice_reports = load_choice_search_reports(run_dir / "optimization")
 
     for theme_name in THEMES:
+        if args.only_choice_search:
+            break
         plot_loss_curve(history, out_dir, theme_name)
         plot_classification_accuracy(test_report, out_dir, theme_name)
         plot_reconstruction_example(config_path, run_dir, out_dir, theme_name)
         if opt_report is not None:
             plot_optimization_comparison(opt_report, out_dir, theme_name)
+    for theme_name in THEMES:
+        if choice_reports is not None:
+            plot_choice_search(choice_reports, out_dir, theme_name)
 
     print(f"wrote charts to {out_dir}")
     if opt_report is None:
         print("no optimization/report.json found; skipped the optimization comparison chart")
+    if choice_reports is None:
+        print("choice-search reports incomplete; skipped the choice-search chart")
 
 
 if __name__ == "__main__":
