@@ -531,12 +531,30 @@ The honest read: on a chain this size, with a CNN already this accurate, render-
 
 ---
 
+## Experiment 4: source and performance variables (smoke test)
+
+Stage 3 of INSTRUCTIONS.md is guitar-specific SOURCE/PERFORMANCE variables (pickup type, pickup position, guitar response, tuning, strings, playing dynamics, pick attack), explicitly called out as distinct from signal-chain parameters. This first increment covers three of them, the ones with a clear, cheap physical model on top of the existing additive-pluck synth (`audio/synth/guitar_synth.py`): **pickup position** (a comb filter on the harmonics, `abs(sin(k * pi * pos_frac))`, the classic bridge-vs-neck brightness difference), **playing dynamics** (pick force drives both brightness and the attack transient's loudness), and **tuning** (a semitone offset applied before pitch conversion). Pickup type and guitar-body/string response are deferred, the same way Stage 2 deferred compression and the noise gate.
+
+The signal chain is held fixed (Experiment 1's virtual amp at one preset, never varied), so this only tests whether a CNN can read source/performance characteristics from audio, without also re-solving gear identification at the same time. A small dataset (3,000 examples, single note per clip) and a CNN readout only (`models/tone_predictor/model.py`'s `TonePredictor`, reused unchanged with 3 outputs) are deliberately as far as this increment goes: audio-similarity re-rendering and the optimization loop are **not attempted yet**, because a fair re-render would need to reproduce the exact note played, and tuning shifts which note that is.
+
+| Parameter | Test MAE, 0-10 scale (300 examples) | Chance (random guess) |
+| :--- | :---: | :---: |
+| Pickup position | **0.86** | 3.33 |
+| Playing dynamics | **1.14** | 3.33 |
+| Tuning | 2.47 | 3.33 |
+
+Pickup position and dynamics are clearly readable from audio, well below chance. Tuning is barely better than guessing, and for a specific, identifiable reason rather than a training shortfall: each clip plays one note chosen uniformly at random across three octaves, then shifted by the tuning offset, so the model only ever hears the *final* pitch. Without a reference for what the "untransposed" note should have been, there is no way to separate "which note was picked" from "how far it was detuned" on a single isolated note, the same kind of genuine unidentifiability the overdrive pedal ran into in Experiments 2 and 3. Recovering tuning would need multiple notes with a known relative interval (a scale or chord) rather than one note in isolation, which is a concrete next step rather than more training.
+
+---
+
 ## Repository Layout
 
 ```text
 audio/
     synth/         synthetic DI guitar source generation (synth_phrase and
-                    add_noise_floor for Experiment 3)
+                    add_noise_floor for Experiment 3; synth_source_pickup
+                    and source_spec.py for Experiment 4's pickup position,
+                    dynamics and tuning)
     rendering/     Experiment 1's single virtual amp, Experiment 2's
                     overdrive/amp/cabinet signal chain (amp_models.py,
                     cabinets.py, chain_params.py, signal_chain.py), and
@@ -632,6 +650,13 @@ python -m evaluation.make_readme_charts_exp3 --run exp3_1m
 `configs/experiment3_300k.yaml` is the run without BatchNorm recalibration, kept as the evidence for that fix; `experiment3_300k_bnrecal.yaml` is the same run with it.
 
 The optimization evaluators and trainers resume from their last checkpoint if interrupted (`*_partial.json`, `--resume`), so a long run can simply be restarted with the same command.
+
+### Running Experiment 4
+
+```bash
+python -m training.generate_dataset_exp4 --n-examples 3000 --out-name exp4_smoke
+python -m training.train_exp4 --config configs/experiment4.yaml
+```
 
 ---
 
