@@ -506,6 +506,29 @@ The 300-render columns cover all 1,000 test examples, the 1,800-render columns t
 - **The gear calls start to matter once the knob search has enough budget.** Giving the loop the true pedal states and gear adds only +0.002 at 300 renders, where the knob search is the bottleneck, but +0.028 at 1,800 (95% interval +0.017 to +0.039). That is the same pattern as Experiment 2 before its amp search, so searching over pedal states and gear at high budgets is the natural next step for this rig.
 - **More data helps less here than in Experiment 2.** After optimization the 1,000,000-example model beats the 300,000-example one by +0.006 at 300 renders (interval +0.003 to +0.010) and +0.008 at 1,800 (interval -0.004 to +0.020, so not distinguishable from zero). In Experiment 2 the same step was also small (+0.005), but the earlier step from 8,000 to 300,000 examples was worth +0.040.
 
+### A discrete-choice search for the full rig
+
+`evaluate_optimization_exp3.py` now has a `search` mode, generalizing Experiment 2's `optimize_with_choices` from a hardcoded overdrive/amp/cabinet tuple to any switch or choice in the `ChainSpec`: rank candidate combinations by the CNN's own confidence, screen each with a short CMA-ES run, keep the best, and spend the rest of the budget refining it.
+
+A validation sweep (100 examples, 1,800-render budget, the 1,000,000-example model) tried the amp-only search first, the axis that paid off in Experiment 2. It did not repeat there: at Experiment 2's winning schedule (3 candidates, 300 screening renders each) it came out slightly behind just trusting the CNN, 0.865 similarity against 0.869 fixed, because screening 3 candidates leaves the winner less refinement depth than fixed spends on its one choice, and amp accuracy here (77.8% on the full test set) is already high enough that the depth lost buys little back. Trimming to 2 candidates broke even (0.870). Adding compressor on/off, the switch with the next-most room (85% accuracy), as a second axis alongside amp, still at 2 candidates, is what found a real edge: 0.876 on validation.
+
+| Search schedule (validation, 1,800 renders) | Audio similarity | Amp identified |
+| :--- | :---: | :---: |
+| Choices fixed | 0.869 | 81% |
+| Amp only, 3 candidates | 0.865 | 57% |
+| Amp only, 2 candidates | 0.870 | 61% |
+| Amp + compressor on/off, 2 candidates | **0.876** | 74% |
+| True choices (ceiling) | ~0.891 | 100% |
+
+On the full 200-example test set, that winning schedule (amp and compressor on/off together, 2 candidates) reached 0.870 similarity against fixed's 0.864, a gain of +0.006 (95% CI -0.006 to +0.018 by paired bootstrap, so not distinguishable from zero at this sample size) and only a small slice of the oracle's +0.027 ceiling. Unlike Experiment 2, where the amp search's gain concentrated on the examples where the CNN had the amp wrong, here the gain is spread about evenly regardless (+0.0064 similarity where the CNN's amp call was already right, +0.0052 where it was wrong), and the search actually lowers amp accuracy, from 80% (the CNN's own call on these 200 examples) to 73.5%, trading away some correct calls for a better-sounding wrong one.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp3_choice_search_dark.png">
+  <img src="docs/assets/exp3_choice_search_light.png" alt="Two bar charts on the same 200 test examples. Audio similarity: choices fixed at 1800 renders 0.86, amp+comp search at 1800 renders 0.87, true choices at 1800 renders 0.89. Amp identified correctly: 80% fixed, 73.5% after the search, against a chance level of 33%, versus 100% for true choices">
+</picture>
+
+The honest read: on a chain this size, with a CNN already this accurate, render-and-compare search recovers only a sliver of the headroom the oracle shows, a single weak axis (amp alone) is not enough to find any of it, and even the two-axis result that did help is not clearly distinguishable from noise at 200 examples.
+
 ---
 
 ## Repository Layout
@@ -600,6 +623,9 @@ python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1
 python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode oracle --n-examples 1000
 python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode fixed --n-examples 200 --max-evals 1800 --tag b1800
 python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode oracle --n-examples 200 --max-evals 1800 --tag b1800
+# search schedule picked on validation (see the table above), then run once on the test set
+python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode search --vary amp,comp_on --split val --n-examples 100 --max-evals 1800 --n-candidates 2 --screen-evals 300
+python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode search --vary amp,comp_on --n-examples 200 --max-evals 1800 --n-candidates 2 --screen-evals 300 --tag b1800
 python -m evaluation.make_readme_charts_exp3 --run exp3_1m
 ```
 

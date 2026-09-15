@@ -1,0 +1,8130 @@
+{
+  "overall": {
+    "mode": "search",
+    "split": "val",
+    "n_examples": 100,
+    "max_evals": 1800,
+    "seconds": 1031.4831070899963,
+    "n_evals_mean": 1793.66,
+    "similarity_before_mean": 0.3779008284850955,
+    "similarity_after_mean": 0.8757401952833126,
+    "knob_mae_before_mean": 1.906556749343872,
+    "knob_mae_after_mean": 1.494372523277998,
+    "similarity_improved_fraction": 1.0,
+    "all_switches_correct_before": 0.32,
+    "all_switches_correct": 0.32,
+    "vary": [
+      "amp",
+      "comp_on"
+    ],
+    "schedule": {
+      "n_candidates": 2,
+      "screen_evals": 300,
+      "keep": 1,
+      "mid_evals": 0
+    },
+    "winner_changed_choice_fraction": 0.41
+  },
+  "per_example": [
+    {
+      "index": 0,
+      "seed": 0,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.5121150375598974,
+        "knob_mae": 1.4474855661392212
+      },
+      "after": {
+        "similarity": 0.9021135722480396,
+        "knob_mae": 0.7624382972717285
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.10980008790890375
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.23458584398031235
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.10980008790890375
+          ]
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "seed": 1,
+      "n_evals": 1790,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.16986857145796272,
+        "knob_mae": 1.9240586757659912
+      },
+      "after": {
+        "similarity": 0.6582164946039311,
+        "knob_mae": 1.7147802114486694
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.7055335392554601
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.8407516479492188
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.7055335392554601
+          ]
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "seed": 2,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.4331684492704621,
+        "knob_mae": 1.5019276142120361
+      },
+      "after": {
+        "similarity": 0.897911906623562,
+        "knob_mae": 1.135939598083496
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.1580286342650652
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.25905315267543
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.1580286342650652
+          ]
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "seed": 3,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.30288874001910326,
+        "knob_mae": 1.4696290493011475
+      },
+      "after": {
+        "similarity": 0.8358737633131125,
+        "knob_mae": 0.8620797395706177
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.2034395734469096
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.2420644313097
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.2034395734469096
+          ]
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "seed": 4,
+      "n_evals": 1799,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.5105359380680642,
+        "knob_mae": 1.886354923248291
+      },
+      "after": {
+        "similarity": 0.9430482954375026,
+        "knob_mae": 1.404055118560791
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.43595942109823227
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.2615641963978608
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.2615641963978608
+          ]
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "seed": 5,
+      "n_evals": 1799,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.4371825204881229,
+        "knob_mae": 1.247718334197998
+      },
+      "after": {
+        "similarity": 0.8112185564206246,
+        "knob_mae": 0.9259793758392334
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.2327134187022845
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.36453091849883396
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.2327134187022845
+          ]
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "seed": 6,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.39256700699726027,
+        "knob_mae": 1.6445908546447754
+      },
+      "after": {
+        "similarity": 0.8809402932467224,
+        "knob_mae": 1.490596055984497
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.34192730734745663
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.3314092680811882
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.3314092680811882
+          ]
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "seed": 7,
+      "n_evals": 1799,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.4733963846322676,
+        "knob_mae": 1.8430759906768799
+      },
+      "after": {
+        "similarity": 0.937606795018481,
+        "knob_mae": 1.5100116729736328
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.23339952963093916
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.2041079935928186
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.2041079935928186
+          ]
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "seed": 8,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.487019763786699,
+        "knob_mae": 1.4051069021224976
+      },
+      "after": {
+        "similarity": 0.9934500503085288,
+        "knob_mae": 0.3441939651966095
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.3327266772588094
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.3539521942536036
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.3327266772588094
+          ]
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "seed": 9,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.3634457838784701,
+        "knob_mae": 1.8627345561981201
+      },
+      "after": {
+        "similarity": 0.9260913002825369,
+        "knob_mae": 1.859480381011963
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.3689972348511219
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.5412248323361079
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.3689972348511219
+          ]
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "seed": 10,
+      "n_evals": 1790,
+      "n_active_knobs": 17,
+      "before": {
+        "similarity": 0.3281372023656529,
+        "knob_mae": 1.4586021900177002
+      },
+      "after": {
+        "similarity": 0.7182066033660027,
+        "knob_mae": 1.5426617860794067
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.6018968373537064
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.5509718755880991
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.5509718755880991
+          ]
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "seed": 11,
+      "n_evals": 1799,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.33531597652630507,
+        "knob_mae": 1.6763367652893066
+      },
+      "after": {
+        "similarity": 0.9989377111799415,
+        "knob_mae": 0.33092570304870605
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.41002010802427924
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.514304464062055
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.41002010802427924
+          ]
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "seed": 12,
+      "n_evals": 1799,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.30384408803962737,
+        "knob_mae": 2.3518495559692383
+      },
+      "after": {
+        "similarity": 0.9570815344676221,
+        "knob_mae": 1.6683911085128784
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ]
+            ],
+            0.21253407249848047
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ]
+            ],
+            0.16831060002247492
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ]
+            ],
+            0.16831060002247492
+          ]
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "seed": 13,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.5502776446847858,
+        "knob_mae": 1.3486027717590332
+      },
+      "after": {
+        "similarity": 0.9503870561266362,
+        "knob_mae": 1.2390072345733643
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.2958405340711276
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            0.38560687005519867
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.2958405340711276
+          ]
+        ]
+      }
+    },
+    {
+      "index": 14,
+      "seed": 14,
+      "n_evals": 1790,
+      "n_active_knobs": 17,
+      "before": {
+        "similarity": 0.1338299964480507,
+        "knob_mae": 2.7104835510253906
+      },
+      "after": {
+        "similarity": 0.7868529586487663,
+        "knob_mae": 2.157935380935669
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.47796905537446344
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.549300824602445
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.47796905537446344
+          ]
+        ]
+      }
+    },
+    {
+      "index": 15,
+      "seed": 15,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.13888313010482267,
+        "knob_mae": 1.7180895805358887
+      },
+      "after": {
+        "similarity": 0.8914483286429109,
+        "knob_mae": 0.8969873785972595
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.2861195007960001
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.48138444125652313
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.2861195007960001
+          ]
+        ]
+      }
+    },
+    {
+      "index": 16,
+      "seed": 16,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.3836055978853102,
+        "knob_mae": 1.879567265510559
+      },
+      "after": {
+        "similarity": 0.813869219944523,
+        "knob_mae": 2.0673818588256836
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.30270157257715863
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.37358132998148597
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.30270157257715863
+          ]
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "seed": 17,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.23780213051826152,
+        "knob_mae": 2.05314040184021
+      },
+      "after": {
+        "similarity": 0.9862527978726687,
+        "knob_mae": 0.7853997945785522
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                1
+              ]
+            ],
+            0.4641936818758646
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.3131863425175349
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.3131863425175349
+          ]
+        ]
+      }
+    },
+    {
+      "index": 18,
+      "seed": 18,
+      "n_evals": 1797,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.27051478121117556,
+        "knob_mae": 1.9916579723358154
+      },
+      "after": {
+        "similarity": 0.8099108170934936,
+        "knob_mae": 1.8068768978118896
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            0.33187191312511766
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            0.4433442254861196
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            0.33187191312511766
+          ]
+        ]
+      }
+    },
+    {
+      "index": 19,
+      "seed": 19,
+      "n_evals": 1797,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.5329644897906757,
+        "knob_mae": 1.7247672080993652
+      },
+      "after": {
+        "similarity": 0.9345630005442992,
+        "knob_mae": 2.0133278369903564
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.22220521171887717
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.4624343936642011
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.22220521171887717
+          ]
+        ]
+      }
+    },
+    {
+      "index": 20,
+      "seed": 20,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.4569988263513984,
+        "knob_mae": 2.557600259780884
+      },
+      "after": {
+        "similarity": 0.8873959167228989,
+        "knob_mae": 2.1060822010040283
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ]
+            ],
+            0.4981011003255844
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ]
+            ],
+            0.36503301064173377
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                0,
+                1
+              ]
+            ],
+            0.36503301064173377
+          ]
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "seed": 21,
+      "n_evals": 1797,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.5000142148701291,
+        "knob_mae": 1.8555430173873901
+      },
+      "after": {
+        "similarity": 0.8890451528836608,
+        "knob_mae": 2.2192952632904053
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.2699805994828542
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.28350700934727985
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.2699805994828542
+          ]
+        ]
+      }
+    },
+    {
+      "index": 22,
+      "seed": 22,
+      "n_evals": 1799,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.25628767055257445,
+        "knob_mae": 2.148956775665283
+      },
+      "after": {
+        "similarity": 0.6355183947580982,
+        "knob_mae": 2.3777236938476562
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.6903224363923073
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.6094688773155212
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.6094688773155212
+          ]
+        ]
+      }
+    },
+    {
+      "index": 23,
+      "seed": 23,
+      "n_evals": 1797,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.21861988581900244,
+        "knob_mae": 1.4117083549499512
+      },
+      "after": {
+        "similarity": 0.8525405019344758,
+        "knob_mae": 1.0836858749389648
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.38317739218473434
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.38837169110774994
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.38317739218473434
+          ]
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "seed": 24,
+      "n_evals": 1797,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.39367396507560254,
+        "knob_mae": 1.6149958372116089
+      },
+      "after": {
+        "similarity": 0.9040253007345816,
+        "knob_mae": 1.3868507146835327
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.20093826452891034
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.3539537861943245
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.20093826452891034
+          ]
+        ]
+      }
+    },
+    {
+      "index": 25,
+      "seed": 25,
+      "n_evals": 1799,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.24546033942878584,
+        "knob_mae": 1.7435585260391235
+      },
+      "after": {
+        "similarity": 0.9799708746513875,
+        "knob_mae": 1.0229467153549194
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.41262491047382355
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.4399549290537834
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.41262491047382355
+          ]
+        ]
+      }
+    },
+    {
+      "index": 26,
+      "seed": 26,
+      "n_evals": 1799,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.09881185278097904,
+        "knob_mae": 2.0980052947998047
+      },
+      "after": {
+        "similarity": 0.7482779030828015,
+        "knob_mae": 1.494310975074768
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.5470399210850397
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.4371072600285212
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.4371072600285212
+          ]
+        ]
+      }
+    },
+    {
+      "index": 27,
+      "seed": 27,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.3882885635257786,
+        "knob_mae": 1.7101192474365234
+      },
+      "after": {
+        "similarity": 0.8850447442856976,
+        "knob_mae": 1.759459137916565
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.31994903460144997
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            0.32186509296298027
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.31994903460144997
+          ]
+        ]
+      }
+    },
+    {
+      "index": 28,
+      "seed": 28,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.5969985950235113,
+        "knob_mae": 2.329475164413452
+      },
+      "after": {
+        "similarity": 0.7531485503541637,
+        "knob_mae": 2.4249696731567383
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.36177922785282135
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.4301342864831289
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.36177922785282135
+          ]
+        ]
+      }
+    },
+    {
+      "index": 29,
+      "seed": 29,
+      "n_evals": 1797,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.2880663793094962,
+        "knob_mae": 1.8231799602508545
+      },
+      "after": {
+        "similarity": 0.9757717529115102,
+        "knob_mae": 1.0912468433380127
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.19773098081350327
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.3700842708349228
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.19773098081350327
+          ]
+        ]
+      }
+    },
+    {
+      "index": 30,
+      "seed": 30,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.39593762730451926,
+        "knob_mae": 1.9767065048217773
+      },
+      "after": {
+        "similarity": 0.8363560260872098,
+        "knob_mae": 0.6876997351646423
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.22234473315378028
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.32662076503038406
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.22234473315378028
+          ]
+        ]
+      }
+    },
+    {
+      "index": 31,
+      "seed": 31,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.4772190771167794,
+        "knob_mae": 1.4054006338119507
+      },
+      "after": {
+        "similarity": 0.999071946308566,
+        "knob_mae": 1.206532597541809
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.09056693067153296
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.35212607930103934
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.09056693067153296
+          ]
+        ]
+      }
+    },
+    {
+      "index": 32,
+      "seed": 32,
+      "n_evals": 1795,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.38770449885719505,
+        "knob_mae": 1.6105879545211792
+      },
+      "after": {
+        "similarity": 0.9988128767797658,
+        "knob_mae": 0.4932287037372589
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.2819939653078715
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.43184528251489
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.2819939653078715
+          ]
+        ]
+      }
+    },
+    {
+      "index": 33,
+      "seed": 33,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.24716111387373374,
+        "knob_mae": 2.22611141204834
+      },
+      "after": {
+        "similarity": 0.9863755499464021,
+        "knob_mae": 0.4016399681568146
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.19239849348862967
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            0.38259292393922806
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.19239849348862967
+          ]
+        ]
+      }
+    },
+    {
+      "index": 34,
+      "seed": 34,
+      "n_evals": 1799,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.20395398185390923,
+        "knob_mae": 1.7061707973480225
+      },
+      "after": {
+        "similarity": 0.9565133175274232,
+        "knob_mae": 1.2180721759796143
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.39648251980543137
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.29678456981976825
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.29678456981976825
+          ]
+        ]
+      }
+    },
+    {
+      "index": 35,
+      "seed": 35,
+      "n_evals": 1790,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.485618745825147,
+        "knob_mae": 2.230743408203125
+      },
+      "after": {
+        "similarity": 0.6888352883717914,
+        "knob_mae": 2.4088828563690186
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                0
+              ]
+            ],
+            0.6161348422368367
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                0
+              ]
+            ],
+            0.5681188553571701
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                0
+              ]
+            ],
+            0.5681188553571701
+          ]
+        ]
+      }
+    },
+    {
+      "index": 36,
+      "seed": 36,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.32802177477105704,
+        "knob_mae": 2.0982744693756104
+      },
+      "after": {
+        "similarity": 0.9346739933763322,
+        "knob_mae": 0.7839129567146301
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                3,
+                1
+              ]
+            ],
+            0.20140543207526207
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.27043920507033664
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                3,
+                1
+              ]
+            ],
+            0.20140543207526207
+          ]
+        ]
+      }
+    },
+    {
+      "index": 37,
+      "seed": 37,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.38618352558960223,
+        "knob_mae": 1.9541869163513184
+      },
+      "after": {
+        "similarity": 0.9343148355082084,
+        "knob_mae": 1.2940747737884521
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.24508929997682571
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.5004088456432024
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.24508929997682571
+          ]
+        ]
+      }
+    },
+    {
+      "index": 38,
+      "seed": 38,
+      "n_evals": 1790,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.5948800310540138,
+        "knob_mae": 1.4010695219039917
+      },
+      "after": {
+        "similarity": 0.7426915349029012,
+        "knob_mae": 2.1686315536499023
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.4953211434185505
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.47789693623781204
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.47789693623781204
+          ]
+        ]
+      }
+    },
+    {
+      "index": 39,
+      "seed": 39,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.3820000024286906,
+        "knob_mae": 1.7794177532196045
+      },
+      "after": {
+        "similarity": 0.8562251003326166,
+        "knob_mae": 0.44614046812057495
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.33418796087304753
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.32486536229650176
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.32486536229650176
+          ]
+        ]
+      }
+    },
+    {
+      "index": 40,
+      "seed": 40,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.5897542995655839,
+        "knob_mae": 1.6498878002166748
+      },
+      "after": {
+        "similarity": 0.8458936199139993,
+        "knob_mae": 2.001556873321533
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.2324077362815539
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.28804022694627446
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            0.2324077362815539
+          ]
+        ]
+      }
+    },
+    {
+      "index": 41,
+      "seed": 41,
+      "n_evals": 1795,
+      "n_active_knobs": 11,
+      "before": {
+        "similarity": 0.20501110404473458,
+        "knob_mae": 2.080415964126587
+      },
+      "after": {
+        "similarity": 0.7624254040854878,
+        "knob_mae": 1.9053767919540405
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.6476481159528097
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.6166654825210571
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.6166654825210571
+          ]
+        ]
+      }
+    },
+    {
+      "index": 42,
+      "seed": 42,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.13375325253182924,
+        "knob_mae": 2.079789400100708
+      },
+      "after": {
+        "similarity": 0.8575976780429891,
+        "knob_mae": 0.9244973063468933
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                1
+              ]
+            ],
+            0.2902074034015338
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            0.2780160879095396
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            0.2780160879095396
+          ]
+        ]
+      }
+    },
+    {
+      "index": 43,
+      "seed": 43,
+      "n_evals": 1790,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.49461540366488876,
+        "knob_mae": 2.400855541229248
+      },
+      "after": {
+        "similarity": 0.8285136466867677,
+        "knob_mae": 2.995604991912842
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.48527097702026367
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.5298920124769211
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.48527097702026367
+          ]
+        ]
+      }
+    },
+    {
+      "index": 44,
+      "seed": 44,
+      "n_evals": 1792,
+      "n_active_knobs": 9,
+      "before": {
+        "similarity": 0.40209806349745797,
+        "knob_mae": 2.938539981842041
+      },
+      "after": {
+        "similarity": 0.8068943481806348,
+        "knob_mae": 1.9656274318695068
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0
+              ]
+            ],
+            0.46231407672166824
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            0.273639015853405
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            0.273639015853405
+          ]
+        ]
+      }
+    },
+    {
+      "index": 45,
+      "seed": 45,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.5237851182046864,
+        "knob_mae": 2.9472455978393555
+      },
+      "after": {
+        "similarity": 0.9243943711917831,
+        "knob_mae": 2.4301326274871826
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                3,
+                0
+              ]
+            ],
+            0.2846585040291151
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                0
+              ]
+            ],
+            0.19207890797406435
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                0
+              ]
+            ],
+            0.19207890797406435
+          ]
+        ]
+      }
+    },
+    {
+      "index": 46,
+      "seed": 46,
+      "n_evals": 1790,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.2818722987078292,
+        "knob_mae": 1.8187317848205566
+      },
+      "after": {
+        "similarity": 0.7560918644104517,
+        "knob_mae": 1.7300357818603516
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.5312656685709953
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.5129675262918075
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.5129675262918075
+          ]
+        ]
+      }
+    },
+    {
+      "index": 47,
+      "seed": 47,
+      "n_evals": 1799,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.25873236580501036,
+        "knob_mae": 1.7681102752685547
+      },
+      "after": {
+        "similarity": 0.8207309741801504,
+        "knob_mae": 3.0718913078308105
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.32184992358088493
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.36831703782081604
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.32184992358088493
+          ]
+        ]
+      }
+    },
+    {
+      "index": 48,
+      "seed": 48,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.3262486731551533,
+        "knob_mae": 1.318023443222046
+      },
+      "after": {
+        "similarity": 0.9950838283333989,
+        "knob_mae": 0.3946121335029602
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                1
+              ]
+            ],
+            0.24688198169072467
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            0.35131605466206867
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                1
+              ]
+            ],
+            0.24688198169072467
+          ]
+        ]
+      }
+    },
+    {
+      "index": 49,
+      "seed": 49,
+      "n_evals": 1795,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.517096451475783,
+        "knob_mae": 2.009512424468994
+      },
+      "after": {
+        "similarity": 0.88874229447321,
+        "knob_mae": 2.1842126846313477
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            0.4223686556021372
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.3248717536528905
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.3248717536528905
+          ]
+        ]
+      }
+    },
+    {
+      "index": 50,
+      "seed": 50,
+      "n_evals": 1790,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.2533046148752741,
+        "knob_mae": 1.9575815200805664
+      },
+      "after": {
+        "similarity": 0.8243605461599198,
+        "knob_mae": 1.1600029468536377
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.48498968283335364
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.5330635458230972
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.48498968283335364
+          ]
+        ]
+      }
+    },
+    {
+      "index": 51,
+      "seed": 51,
+      "n_evals": 1795,
+      "n_active_knobs": 11,
+      "before": {
+        "similarity": 0.279225829157889,
+        "knob_mae": 2.033783435821533
+      },
+      "after": {
+        "similarity": 0.9956257915842025,
+        "knob_mae": 1.9617340564727783
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                1
+              ]
+            ],
+            0.31779841954509414
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                1
+              ]
+            ],
+            0.336275402456522
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                1
+              ]
+            ],
+            0.31779841954509414
+          ]
+        ]
+      }
+    },
+    {
+      "index": 52,
+      "seed": 52,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.19182521443531192,
+        "knob_mae": 1.9839760065078735
+      },
+      "after": {
+        "similarity": 0.8256011755598404,
+        "knob_mae": 1.5407949686050415
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.2470107103387515
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.3430325190226237
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.2470107103387515
+          ]
+        ]
+      }
+    },
+    {
+      "index": 53,
+      "seed": 53,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.26051034370509946,
+        "knob_mae": 2.3276586532592773
+      },
+      "after": {
+        "similarity": 0.941954283181772,
+        "knob_mae": 1.0016329288482666
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                2
+              ]
+            ],
+            0.28924979517857236
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2
+              ]
+            ],
+            0.13648074368635812
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2
+              ]
+            ],
+            0.13648074368635812
+          ]
+        ]
+      }
+    },
+    {
+      "index": 54,
+      "seed": 54,
+      "n_evals": 1799,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.343871655859432,
+        "knob_mae": 2.0146801471710205
+      },
+      "after": {
+        "similarity": 0.8080799010484535,
+        "knob_mae": 1.6384861469268799
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.4678705210487048
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.4389372145136197
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.4389372145136197
+          ]
+        ]
+      }
+    },
+    {
+      "index": 55,
+      "seed": 55,
+      "n_evals": 1799,
+      "n_active_knobs": 11,
+      "before": {
+        "similarity": 0.48079930702208895,
+        "knob_mae": 1.9549949169158936
+      },
+      "after": {
+        "similarity": 0.8686223730810936,
+        "knob_mae": 2.1597812175750732
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.28830516959230107
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.2648446336388588
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.2648446336388588
+          ]
+        ]
+      }
+    },
+    {
+      "index": 56,
+      "seed": 56,
+      "n_evals": 1799,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.3271244124090963,
+        "knob_mae": 1.8678398132324219
+      },
+      "after": {
+        "similarity": 0.6724565612236897,
+        "knob_mae": 2.3779563903808594
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.6059839278459549
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.5438893834749857
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.5438893834749857
+          ]
+        ]
+      }
+    },
+    {
+      "index": 57,
+      "seed": 57,
+      "n_evals": 1799,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.48884441701816733,
+        "knob_mae": 1.9431076049804688
+      },
+      "after": {
+        "similarity": 0.9383252694482699,
+        "knob_mae": 2.1499252319335938
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.3842541923125585
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.25017277772227925
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.25017277772227925
+          ]
+        ]
+      }
+    },
+    {
+      "index": 58,
+      "seed": 58,
+      "n_evals": 1799,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.3644030576907924,
+        "knob_mae": 2.0358779430389404
+      },
+      "after": {
+        "similarity": 0.7841809801617813,
+        "knob_mae": 1.7968308925628662
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.29921864966551465
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.30091650411486626
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.29921864966551465
+          ]
+        ]
+      }
+    },
+    {
+      "index": 59,
+      "seed": 59,
+      "n_evals": 1795,
+      "n_active_knobs": 11,
+      "before": {
+        "similarity": 0.2940198942546772,
+        "knob_mae": 2.258819818496704
+      },
+      "after": {
+        "similarity": 0.6862893854138984,
+        "knob_mae": 1.6542136669158936
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                3,
+                0
+              ]
+            ],
+            0.5622873691221079
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                0
+              ]
+            ],
+            0.47879748170574504
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                3,
+                0
+              ]
+            ],
+            0.47879748170574504
+          ]
+        ]
+      }
+    },
+    {
+      "index": 60,
+      "seed": 60,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.48667724535368373,
+        "knob_mae": 1.8165535926818848
+      },
+      "after": {
+        "similarity": 0.9892946460666772,
+        "knob_mae": 0.7567777037620544
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                1
+              ]
+            ],
+            0.24018561591704685
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            0.29677408933639526
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                1
+              ]
+            ],
+            0.24018561591704685
+          ]
+        ]
+      }
+    },
+    {
+      "index": 61,
+      "seed": 61,
+      "n_evals": 1792,
+      "n_active_knobs": 9,
+      "before": {
+        "similarity": 0.492127828330314,
+        "knob_mae": 1.7963292598724365
+      },
+      "after": {
+        "similarity": 0.8225564843289472,
+        "knob_mae": 1.0787755250930786
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                2
+              ]
+            ],
+            0.31226805970072746
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ],
+            0.284729474534591
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ],
+            0.284729474534591
+          ]
+        ]
+      }
+    },
+    {
+      "index": 62,
+      "seed": 62,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.434338172817949,
+        "knob_mae": 1.4176115989685059
+      },
+      "after": {
+        "similarity": 0.9992513645888184,
+        "knob_mae": 0.024034306406974792
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                0
+              ]
+            ],
+            0.1426231029133002
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ]
+            ],
+            0.35270266234874725
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                0
+              ]
+            ],
+            0.1426231029133002
+          ]
+        ]
+      }
+    },
+    {
+      "index": 63,
+      "seed": 63,
+      "n_evals": 1792,
+      "n_active_knobs": 9,
+      "before": {
+        "similarity": 0.5233517373707951,
+        "knob_mae": 1.411154866218567
+      },
+      "after": {
+        "similarity": 0.9817997637627387,
+        "knob_mae": 0.24066978693008423
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2
+              ]
+            ],
+            0.12465744713942209
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                2
+              ]
+            ],
+            0.14203693841894466
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2
+              ]
+            ],
+            0.12465744713942209
+          ]
+        ]
+      }
+    },
+    {
+      "index": 64,
+      "seed": 64,
+      "n_evals": 1795,
+      "n_active_knobs": 14,
+      "before": {
+        "similarity": 0.3739965871198083,
+        "knob_mae": 1.7594090700149536
+      },
+      "after": {
+        "similarity": 0.865257644432953,
+        "knob_mae": 1.8601231575012207
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.30372190723816556
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.22737374529242516
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.22737374529242516
+          ]
+        ]
+      }
+    },
+    {
+      "index": 65,
+      "seed": 65,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.33197322427133297,
+        "knob_mae": 2.595090866088867
+      },
+      "after": {
+        "similarity": 0.8041451181178284,
+        "knob_mae": 3.063844919204712
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.3027295296390851
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.274255615969499
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.274255615969499
+          ]
+        ]
+      }
+    },
+    {
+      "index": 66,
+      "seed": 66,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.5280071268242529,
+        "knob_mae": 1.5669517517089844
+      },
+      "after": {
+        "similarity": 0.9747243711079566,
+        "knob_mae": 0.7517093420028687
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.22903368808329105
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.28890691076715785
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.22903368808329105
+          ]
+        ]
+      }
+    },
+    {
+      "index": 67,
+      "seed": 67,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.5667258100507632,
+        "knob_mae": 1.232795238494873
+      },
+      "after": {
+        "similarity": 0.98676960742341,
+        "knob_mae": 0.2889131009578705
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.13116666922966638
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.16490230336785316
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.13116666922966638
+          ]
+        ]
+      }
+    },
+    {
+      "index": 68,
+      "seed": 68,
+      "n_evals": 1795,
+      "n_active_knobs": 11,
+      "before": {
+        "similarity": 0.3540488333350943,
+        "knob_mae": 2.332362174987793
+      },
+      "after": {
+        "similarity": 0.6832912468397118,
+        "knob_mae": 2.489320993423462
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                2
+              ]
+            ],
+            0.5161604732275009
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2
+              ]
+            ],
+            0.5697132299343745
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                2
+              ]
+            ],
+            0.5161604732275009
+          ]
+        ]
+      }
+    },
+    {
+      "index": 69,
+      "seed": 69,
+      "n_evals": 1795,
+      "n_active_knobs": 14,
+      "before": {
+        "similarity": 0.46562690178146465,
+        "knob_mae": 2.182978391647339
+      },
+      "after": {
+        "similarity": 0.6411899739560772,
+        "knob_mae": 2.1890084743499756
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.6836451242367426
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.6645201320449512
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.6645201320449512
+          ]
+        ]
+      }
+    },
+    {
+      "index": 70,
+      "seed": 70,
+      "n_evals": 1795,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.2500095607022834,
+        "knob_mae": 2.5840561389923096
+      },
+      "after": {
+        "similarity": 0.7505090038001382,
+        "knob_mae": 2.1289262771606445
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.40107124050458276
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.3628046015898387
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.3628046015898387
+          ]
+        ]
+      }
+    },
+    {
+      "index": 71,
+      "seed": 71,
+      "n_evals": 1795,
+      "n_active_knobs": 11,
+      "before": {
+        "similarity": 0.23790308789326106,
+        "knob_mae": 2.447446584701538
+      },
+      "after": {
+        "similarity": 0.8923289113427931,
+        "knob_mae": 1.2322808504104614
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            0.5203044762214025
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            1.014261543750763
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            0.5203044762214025
+          ]
+        ]
+      }
+    },
+    {
+      "index": 72,
+      "seed": 72,
+      "n_evals": 1799,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.2512992038015447,
+        "knob_mae": 1.674736499786377
+      },
+      "after": {
+        "similarity": 0.7213157077115144,
+        "knob_mae": 2.104527473449707
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.46969209611415863
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.7215089946985245
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.46969209611415863
+          ]
+        ]
+      }
+    },
+    {
+      "index": 73,
+      "seed": 73,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.4275580123729436,
+        "knob_mae": 1.9079018831253052
+      },
+      "after": {
+        "similarity": 0.8952299569431006,
+        "knob_mae": 1.5538674592971802
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.4833538631598155
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                3,
+                2
+              ]
+            ],
+            0.48554894576470053
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                3,
+                2
+              ]
+            ],
+            0.4833538631598155
+          ]
+        ]
+      }
+    },
+    {
+      "index": 74,
+      "seed": 74,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.4839993263657727,
+        "knob_mae": 1.2678546905517578
+      },
+      "after": {
+        "similarity": 0.8254645651544408,
+        "knob_mae": 1.8115276098251343
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                0,
+                1
+              ]
+            ],
+            0.2762572274853786
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            0.3244414155681928
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                0,
+                1
+              ]
+            ],
+            0.2762572274853786
+          ]
+        ]
+      }
+    },
+    {
+      "index": 75,
+      "seed": 75,
+      "n_evals": 1795,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.3019037723641633,
+        "knob_mae": 2.1640233993530273
+      },
+      "after": {
+        "similarity": 0.8440794725700699,
+        "knob_mae": 1.2267833948135376
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                2,
+                1,
+                2
+              ]
+            ],
+            0.5387511824568112
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.498241163790226
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            0.498241163790226
+          ]
+        ]
+      }
+    },
+    {
+      "index": 76,
+      "seed": 76,
+      "n_evals": 1792,
+      "n_active_knobs": 9,
+      "before": {
+        "similarity": 0.5124451575385861,
+        "knob_mae": 2.5159146785736084
+      },
+      "after": {
+        "similarity": 0.9133678151799304,
+        "knob_mae": 0.5586100220680237
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.3324164282530546
+          ],
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.47645662476619083
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                3,
+                1
+              ]
+            ],
+            0.3324164282530546
+          ]
+        ]
+      }
+    },
+    {
+      "index": 77,
+      "seed": 77,
+      "n_evals": 1799,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.3801372559464476,
+        "knob_mae": 1.7760330438613892
+      },
+      "after": {
+        "similarity": 0.663011270927938,
+        "knob_mae": 1.8616962432861328
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ],
+            0.541711578766505
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ],
+            0.6699536144733429
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ],
+            0.541711578766505
+          ]
+        ]
+      }
+    },
+    {
+      "index": 78,
+      "seed": 78,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.6285307976898428,
+        "knob_mae": 2.0843677520751953
+      },
+      "after": {
+        "similarity": 0.9723486670568828,
+        "knob_mae": 1.09325110912323
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.33136099204421043
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.17056031168128052
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.17056031168128052
+          ]
+        ]
+      }
+    },
+    {
+      "index": 79,
+      "seed": 79,
+      "n_evals": 1795,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.6106107168180265,
+        "knob_mae": 2.2448244094848633
+      },
+      "after": {
+        "similarity": 0.7258764610266193,
+        "knob_mae": 1.9305669069290161
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            0.4985483984152476
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.47759432159364223
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.47759432159364223
+          ]
+        ]
+      }
+    },
+    {
+      "index": 80,
+      "seed": 80,
+      "n_evals": 1790,
+      "n_active_knobs": 18,
+      "before": {
+        "similarity": 0.09006929797577697,
+        "knob_mae": 2.1738064289093018
+      },
+      "after": {
+        "similarity": 0.8826838138459284,
+        "knob_mae": 2.755615472793579
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.35866288592418033
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1
+              ]
+            ],
+            0.4605390230814616
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                1
+              ]
+            ],
+            0.35866288592418033
+          ]
+        ]
+      }
+    },
+    {
+      "index": 81,
+      "seed": 81,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.4496587627886564,
+        "knob_mae": 1.9240938425064087
+      },
+      "after": {
+        "similarity": 0.9723012859898256,
+        "knob_mae": 0.8843696117401123
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.21416733103493849
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.24121868579337996
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.21416733103493849
+          ]
+        ]
+      }
+    },
+    {
+      "index": 82,
+      "seed": 82,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.4360051843156545,
+        "knob_mae": 1.951479196548462
+      },
+      "after": {
+        "similarity": 0.936297502897956,
+        "knob_mae": 2.163794994354248
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                2
+              ]
+            ],
+            0.4288662125666936
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                2
+              ]
+            ],
+            0.24098809187610942
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                2
+              ]
+            ],
+            0.24098809187610942
+          ]
+        ]
+      }
+    },
+    {
+      "index": 83,
+      "seed": 83,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.10421634985160641,
+        "knob_mae": 1.7085620164871216
+      },
+      "after": {
+        "similarity": 0.8329774516255687,
+        "knob_mae": 1.3498854637145996
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            0.534555455048879
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ],
+            0.5456994424263636
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            0.534555455048879
+          ]
+        ]
+      }
+    },
+    {
+      "index": 84,
+      "seed": 84,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.4016376704615994,
+        "knob_mae": 1.631703495979309
+      },
+      "after": {
+        "similarity": 0.9980654472323363,
+        "knob_mae": 0.8675742745399475
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.10317456598083177
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.3016063223282496
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.10317456598083177
+          ]
+        ]
+      }
+    },
+    {
+      "index": 85,
+      "seed": 85,
+      "n_evals": 1795,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.29174119599633125,
+        "knob_mae": 1.7086131572723389
+      },
+      "after": {
+        "similarity": 0.9337091313010013,
+        "knob_mae": 2.5731356143951416
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.40073500076929724
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            0.4384307339787483
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.40073500076929724
+          ]
+        ]
+      }
+    },
+    {
+      "index": 86,
+      "seed": 86,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.20004172559682537,
+        "knob_mae": 1.9311178922653198
+      },
+      "after": {
+        "similarity": 0.9355644211352665,
+        "knob_mae": 1.447437047958374
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.3017811452349027
+          ],
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.3628450060884158
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.3017811452349027
+          ]
+        ]
+      }
+    },
+    {
+      "index": 87,
+      "seed": 87,
+      "n_evals": 1799,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.47154612579127075,
+        "knob_mae": 1.2480826377868652
+      },
+      "after": {
+        "similarity": 0.9939424528243535,
+        "knob_mae": 0.8225823640823364
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.1663703272740046
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.1651493807633718
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            0.1651493807633718
+          ]
+        ]
+      }
+    },
+    {
+      "index": 88,
+      "seed": 88,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.5307685205349889,
+        "knob_mae": 2.065049886703491
+      },
+      "after": {
+        "similarity": 0.89667080609528,
+        "knob_mae": 1.7313600778579712
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.2700834895173709
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.3434506754080454
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            0.2700834895173709
+          ]
+        ]
+      }
+    },
+    {
+      "index": 89,
+      "seed": 89,
+      "n_evals": 1797,
+      "n_active_knobs": 14,
+      "before": {
+        "similarity": 0.6055371521573362,
+        "knob_mae": 1.5510330200195312
+      },
+      "after": {
+        "similarity": 0.8625430866747882,
+        "knob_mae": 1.3317937850952148
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.3191116700569788
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.33995618422826135
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                3,
+                1
+              ]
+            ],
+            0.3191116700569788
+          ]
+        ]
+      }
+    },
+    {
+      "index": 90,
+      "seed": 90,
+      "n_evals": 1790,
+      "n_active_knobs": 16,
+      "before": {
+        "similarity": 0.295096475065777,
+        "knob_mae": 1.7624216079711914
+      },
+      "after": {
+        "similarity": 0.9259607176247359,
+        "knob_mae": 0.7409284710884094
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                1
+              ]
+            ],
+            0.5697070807218552
+          ],
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            0.45989723006884253
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                1,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            0.45989723006884253
+          ]
+        ]
+      }
+    },
+    {
+      "index": 91,
+      "seed": 91,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.27202666792300356,
+        "knob_mae": 1.7182502746582031
+      },
+      "after": {
+        "similarity": 0.9897214402104012,
+        "knob_mae": 0.47944992780685425
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.16579199209809303
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.15408782040079436
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            0.15408782040079436
+          ]
+        ]
+      }
+    },
+    {
+      "index": 92,
+      "seed": 92,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.1556990337540926,
+        "knob_mae": 2.1755683422088623
+      },
+      "after": {
+        "similarity": 0.9075984451614781,
+        "knob_mae": 1.5541173219680786
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 0
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                0
+              ]
+            ],
+            0.30426273743311566
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                0
+              ]
+            ],
+            0.5899397333463033
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                0
+              ]
+            ],
+            0.30426273743311566
+          ]
+        ]
+      }
+    },
+    {
+      "index": 93,
+      "seed": 93,
+      "n_evals": 1797,
+      "n_active_knobs": 13,
+      "before": {
+        "similarity": 0.15553657657360995,
+        "knob_mae": 2.4506983757019043
+      },
+      "after": {
+        "similarity": 0.9578163712095525,
+        "knob_mae": 1.3719971179962158
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                0
+              ]
+            ],
+            0.3012745678424835
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                0
+              ]
+            ],
+            0.44195220371087396
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                0
+              ]
+            ],
+            0.3012745678424835
+          ]
+        ]
+      }
+    },
+    {
+      "index": 94,
+      "seed": 94,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.3504076110301836,
+        "knob_mae": 1.317081332206726
+      },
+      "after": {
+        "similarity": 0.9704396204156825,
+        "knob_mae": 0.7087629437446594
+      },
+      "switches_correct_before": 1,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 0,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                0
+              ]
+            ],
+            0.3199724480509758
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0
+              ]
+            ],
+            0.2842151621977488
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0
+              ]
+            ],
+            0.2842151621977488
+          ]
+        ]
+      }
+    },
+    {
+      "index": 95,
+      "seed": 95,
+      "n_evals": 1792,
+      "n_active_knobs": 8,
+      "before": {
+        "similarity": 0.5598925811227946,
+        "knob_mae": 1.8912270069122314
+      },
+      "after": {
+        "similarity": 0.9889570850966644,
+        "knob_mae": 0.7606170177459717
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.20830453683932623
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.2778329650561015
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            0.20830453683932623
+          ]
+        ]
+      }
+    },
+    {
+      "index": 96,
+      "seed": 96,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.4791766550378499,
+        "knob_mae": 2.2646191120147705
+      },
+      "after": {
+        "similarity": 0.9547955144744951,
+        "knob_mae": 1.3168752193450928
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.1905350685119629
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.18710695393383503
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.18710695393383503
+          ]
+        ]
+      }
+    },
+    {
+      "index": 97,
+      "seed": 97,
+      "n_evals": 1792,
+      "n_active_knobs": 10,
+      "before": {
+        "similarity": 0.5870087866874055,
+        "knob_mae": 1.5550485849380493
+      },
+      "after": {
+        "similarity": 0.9882476741190409,
+        "knob_mae": 1.5346037149429321
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 1,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.23271313806374866
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.19496588160594305
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                1
+              ]
+            ],
+            0.19496588160594305
+          ]
+        ]
+      }
+    },
+    {
+      "index": 98,
+      "seed": 98,
+      "n_evals": 1799,
+      "n_active_knobs": 12,
+      "before": {
+        "similarity": 0.5167077811298122,
+        "knob_mae": 2.373624801635742
+      },
+      "after": {
+        "similarity": 0.8827734376882185,
+        "knob_mae": 1.78603196144104
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 1,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.22292481983701387
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.212082523231705
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                2
+              ]
+            ],
+            0.212082523231705
+          ]
+        ]
+      }
+    },
+    {
+      "index": 99,
+      "seed": 99,
+      "n_evals": 1790,
+      "n_active_knobs": 15,
+      "before": {
+        "similarity": 0.5498786537409829,
+        "knob_mae": 2.258174419403076
+      },
+      "after": {
+        "similarity": 0.900686857157944,
+        "knob_mae": 3.3723626136779785
+      },
+      "switches_correct_before": 0,
+      "choices_correct_before": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "switches_correct": 0,
+      "choices_correct": {
+        "amp": 1,
+        "cabinet": 1,
+        "mic": 1
+      },
+      "screen_rank_of_winner": 0,
+      "trace": {
+        "screen": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                2,
+                3,
+                2
+              ]
+            ],
+            0.276626576979955
+          ],
+          [
+            [
+              [
+                0,
+                1,
+                1,
+                1
+              ],
+              [
+                2,
+                3,
+                2
+              ]
+            ],
+            0.38263420263926184
+          ]
+        ],
+        "mid": [
+          [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                2,
+                3,
+                2
+              ]
+            ],
+            0.276626576979955
+          ]
+        ]
+      }
+    }
+  ]
+}
