@@ -1,0 +1,19 @@
+experiment_name: exp3_300k_bnrecal
+
+dataset:
+  # train: the first n_train examples of the Experiment 3 pool; val/test: the fixed 1,000-example splits
+  data_root: data/generated/exp3
+  n_train: 300000
+  sr: 16000
+
+training:
+  batch_size: 32
+  epochs: 40
+  patience: 8
+  shards_per_block: 2
+  # recompute BatchNorm statistics on this many training examples after every epoch
+  bn_recalibration_examples: 10240
+  lr: 0.001
+  audio_eval_every: 5
+  audio_eval_n_examples: 20
+  seed: 0

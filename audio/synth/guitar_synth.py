@@ -58,3 +58,52 @@ def synth_source(sr, duration, rng, min_notes=1, max_notes=3):
 
     note_events = {"midi_notes": midi_notes}
     return audio, note_events
+
+
+def synth_phrase(sr, duration, rng, min_notes=1, max_notes=3):
+    """Like synth_source, but notes start at random times and may be damped
+    early, so the clip has stretches where nothing is played. synth_source
+    strikes every note at t=0 and lets it ring for the whole clip, which
+    leaves a noise gate nothing to act on. Kept separate so Experiments 1 and
+    2 (which use synth_source) are unchanged.
+    """
+    n_samples = int(duration * sr)
+    n_notes = int(rng.integers(min_notes, max_notes + 1))
+    audio = np.zeros(n_samples, dtype=np.float32)
+    events = []
+    for _ in range(n_notes):
+        midi = int(rng.integers(GUITAR_MIDI_LOW, GUITAR_MIDI_HIGH + 1))
+        onset = float(rng.uniform(0.0, 0.45 * duration))
+        # about half the notes are damped (palm mute / released), the rest ring out
+        length = float(rng.uniform(0.08, 0.35)) if rng.uniform() < 0.5 else duration
+        note = _pluck(midi_to_freq(midi), duration, sr, rng)
+        start = int(onset * sr)
+        stop = min(n_samples, start + int(length * sr))
+        seg = note[: stop - start].copy()
+        fade = min(len(seg), int(0.015 * sr))  # quick damping instead of a click
+        if stop < n_samples and fade > 0:
+            seg[-fade:] *= np.linspace(1.0, 0.0, fade, dtype=np.float32)
+        audio[start:stop] += rng.uniform(0.6, 1.0) * seg
+        events.append({"midi": midi, "onset_s": onset, "length_s": min(length, duration - onset)})
+
+    peak = np.max(np.abs(audio)) + 1e-8
+    audio = (audio / peak * 0.8).astype(np.float32)
+    return audio, {"notes": events}
+
+
+def add_noise_floor(audio, sr, rng, level_db_range=(-70.0, -40.0)):
+    """A real DI signal is never silent: pickups hum and the interface hisses.
+    Adds white hiss plus mains hum (50 or 60 Hz with a few harmonics) at a
+    random level in dBFS, so a noise gate has something to do. The level is a
+    property of the source, not the signal chain, and is returned so it can be
+    recorded rather than predicted.
+    """
+    level_db = float(rng.uniform(*level_db_range))
+    t = np.arange(len(audio), dtype=np.float32) / sr
+    mains = 50.0 if rng.uniform() < 0.5 else 60.0
+    hum = sum(np.sin(2 * np.pi * mains * k * t + rng.uniform(0, 2 * np.pi)) / k for k in (1, 2, 3))
+    hiss = rng.normal(0.0, 1.0, size=len(audio))
+    noise = 0.5 * hiss / (np.std(hiss) + 1e-8) + 0.5 * hum / (np.std(hum) + 1e-8)
+    noise *= 10.0 ** (level_db / 20.0)
+    return (audio + noise).astype(np.float32), level_db
+

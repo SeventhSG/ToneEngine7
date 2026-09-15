@@ -1,0 +1,33 @@
+{
+  "threshold": 0.02,
+  "switches": {
+    "gate_on": {
+      "n_on": 522,
+      "audible_fraction": 0.4827586206896552,
+      "accuracy_when_on_and_audible": 0.7777777777777778,
+      "accuracy_when_on_but_inaudible": 0.06666666666666667,
+      "accuracy_when_off": 0.9351464435146444
+    },
+    "comp_on": {
+      "n_on": 524,
+      "audible_fraction": 1.0,
+      "accuracy_when_on_and_audible": 0.7538167938931297,
+      "accuracy_when_on_but_inaudible": null,
+      "accuracy_when_off": 0.9558823529411765
+    },
+    "overdrive_on": {
+      "n_on": 498,
+      "audible_fraction": 0.9859437751004017,
+      "accuracy_when_on_and_audible": 0.3788187372708758,
+      "accuracy_when_on_but_inaudible": 0.5714285714285714,
+      "accuracy_when_off": 0.7828685258964143
+    },
+    "eq_on": {
+      "n_on": 491,
+      "audible_fraction": 1.0,
+      "accuracy_when_on_and_audible": 0.890020366598778,
+      "accuracy_when_on_but_inaudible": null,
+      "accuracy_when_off": 0.9646365422396856
+    }
+  }
+}

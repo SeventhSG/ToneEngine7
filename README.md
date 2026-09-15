@@ -233,7 +233,7 @@ This project is still in its early stages. The architecture, models, datasets, a
 The first major milestone is simple:
 > Train a model that can analyze an unseen generated guitar tone, predict the parameters that created it, and reproduce that tone.
 
-**First milestone: proven on a single virtual amp, including the optimization loop.** Stage 2 (signal chains) is in progress: an overdrive, amp, and cabinet chain is working, the optimizer can change which amp is in the chain as well as its knobs, and training on up to a million synthetic examples lifted the CNN's amp identification from 58% to 82% (see Experiment 2). Compression, a noise gate, mic modeling, real recordings, and song input are still ahead.
+**First milestone: proven on a single virtual amp, including the optimization loop.** Stage 2 (signal chains) is covered: Experiment 2 proved an overdrive, amp, and cabinet chain and showed that training on up to a million synthetic examples lifts the CNN's amp identification from 58% to 82%, and Experiment 3 runs the complete Stage 2 rig from INSTRUCTIONS.md (noise gate, compressor, overdrive, amp, EQ, cabinet, microphone) through the same pipeline. Stage 3 (guitar-specific variables), real recordings, and song input are still ahead.
 
 ---
 
@@ -419,38 +419,133 @@ At the everyday budget of 300 renders, better training data lifts the final simi
 
 ---
 
+## Results: Experiment 3
+
+**Stage 2, increment 2** completes the Stage 2 list in INSTRUCTIONS.md: the rig now has a noise gate, a compressor, the overdrive, one of 3 amps, an EQ pedal in the effects loop, one of 4 cabinets, and a microphone.
+
+```mermaid
+flowchart LR
+    A[DI guitar + noise floor] --> G[Noise gate] --> C[Compressor] --> O[Overdrive] --> P[Amp] --> E[EQ pedal] --> K[Cabinet IR] --> M[Microphone]
+```
+
+Gate, compressor, overdrive and EQ are each on or off. Continuous knobs: gate threshold, compressor sustain and level, overdrive drive and level, the amp's six knobs, five EQ bands (100 Hz to 3.2 kHz), and the microphone's position on the cone and distance from the grille, 18 in total. Categorical choices: amp (3), cabinet (4), and microphone type (3: dynamic, condenser, ribbon). Like the cabinets, the microphones are synthetic filter shapes standing in for each family's character (`audio/rendering/mics.py`), not measurements of real mics.
+
+Two things had to change for this rig to be a fair test:
+
+- **The source now has gaps and a noise floor.** The original synthetic DI strikes every note at once and lets it ring for the whole clip, and a render check showed a noise gate then changes nothing at all, because the signal never drops below any threshold. Experiment 3 uses `synth_phrase` (notes start at random times, about half are damped early) plus `add_noise_floor` (hiss and 50/60 Hz hum at -70 to -40 dBFS). The noise level is part of the source, recorded but never predicted, which follows the brief's split between source, signal chain and recording chain. Experiments 1 and 2 still use the original source, unchanged.
+- **The chain is described by a spec** (`audio/rendering/chain_spec.py`). The dataset, the model's output heads, the loss masking (knobs of a pedal that is off do not count) and the metrics all follow from `EXP3_SPEC` in `audio/rendering/signal_chain3.py`, so adding gear later means extending a spec, not rewriting the pipeline.
+
+The data follows the Experiment 2 recipe: a 1,000,000-example training pool plus fixed 1,000-example validation and test sets, each split with its own seed (`training/generate_exp3.py`), and the same CNN trunk with spec-generated heads (`models/tone_predictor/multihead.py`).
+
+### A training bug found along the way: BatchNorm statistics
+
+The first run on 300,000 examples stopped at epoch 13 with its best validation loss at epoch 5, while training loss was still falling steadily, and the validation loss jumped up and down by as much as 16% between epochs. Scoring the same checkpoints with BatchNorm using each batch's own statistics instead of its stored running averages showed the cause: the epoch-13 weights were clearly better than epoch 5's (validation loss 2.62 against 2.81, amp 75% against 71%), but the stored statistics made them look worse (3.34). BatchNorm's running averages follow only the last few dozen training batches of 32 while the weights are still moving fast, so they are stale and noisy, and early stopping was picking checkpoints by that noise.
+
+The fix is to recompute the statistics exactly over a fixed set of 10,000 training examples after every epoch, before validating and saving (`recalibrate_batchnorm` in `training/train_exp3.py`; weights are never touched). Validation loss then falls smoothly from epoch to epoch instead of jumping:
+
+| Epoch | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Validation loss, stored statistics | 3.66 | 3.26 | 3.17 | 3.33 | 2.86 | 3.08 | 3.11 |
+| Validation loss, recalibrated | 3.35 | 3.12 | 3.01 | 2.92 | 2.84 | 2.83 | 2.78 |
+
+Retrained on the same 300,000 examples with recalibration, the run trains to epoch 21 (best at 13) instead of stopping at epoch 13 with the best at 5, and the test results move accordingly:
+
+| 300,000 training examples, CNN only | Stored statistics | Recalibrated |
+| :--- | :---: | :---: |
+| Amp identified (3 choices) | 68.9% | **74.7%** |
+| Compressor on/off | 82.4% | 83.8% |
+| Microphone type (3 choices) | 88.1% | 89.9% |
+| Knob MAE (0-10) | 2.14 | **2.02** |
+| Audio similarity | 0.360 | **0.407** |
+
+The other heads (gate, overdrive, EQ, cabinet) moved by a point or less.
+
+This is almost certainly also why Experiment 2's validation loss was so spiky. Recalibrating Experiment 2's chosen checkpoints afterwards changes their test results by less than a point (amp 82.3% to 82.4% for the 1,000,000-example model), so the published Experiment 2 numbers stand; whether those runs also stopped too early would take retraining, which has not been done.
+
+### What the CNN can read from the audio
+
+Trained with recalibration on the full 1,000,000-example pool (27 epochs, best at 19), and on the first 300,000 of it for comparison, scored on the same 1,000 test examples:
+
+| CNN only | 300,000 examples | 1,000,000 examples | Chance |
+| :--- | :---: | :---: | :---: |
+| Cabinet (4) | 100% | 100% | 25% |
+| EQ pedal on/off | 88.8% | **92.8%** | 50% |
+| Microphone type (3) | 89.9% | **92.3%** | 33% |
+| Compressor on/off | 83.8% | **85.0%** | 50% |
+| Amp (3) | 74.7% | **77.8%** | 33% |
+| Noise gate on/off | 64.9% | 66.1% | 50% |
+| Overdrive on/off | 58.9% | 58.3% | 50% |
+| Knob MAE (0-10, only knobs whose pedal is on) | 2.02 | **1.93** | 3.33 |
+| Audio similarity | 0.407 | 0.394 | |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/exp3_readout_dark.png">
+  <img src="docs/assets/exp3_readout_light.png" alt="Experiment 3 test accuracy: gate on/off 66%, compressor 85%, overdrive 58%, EQ 93%, amp 78%, cabinet 100%, microphone 92%, each against its chance level; and knob error for all 18 knobs, grouped by pedal, mostly between 1.2 and 2.5 on a 0-10 scale against 3.33 for a random guess">
+</picture>
+
+The bigger rig is clearly harder to read than Experiment 2's. The cabinet, EQ pedal and microphone are read reliably, the amp call is about where Experiment 2 was at 300,000 examples, and the knobs are much less certain: knob error stays around 1.9 on the 0-10 scale, against 1.26 for Experiment 2 at the same data size, and more data helps them far less. That is expected rather than a failure: with a compressor, an EQ pedal and a microphone in the chain, very different knob settings can produce nearly the same sound (a mid boost on the EQ pedal and one on the amp's tone stack, for instance), which is exactly the "parameter accuracy is not audio accuracy" warning in INSTRUCTIONS.md. The one odd result is that the 1,000,000-example model's own prediction sounds slightly less like the reference (0.394 against 0.407) even though its gear calls and knobs are better on average; after optimization, below, the order reverses (0.737 against 0.730 at 300 renders, +0.006, 95% bootstrap interval +0.003 to +0.010).
+
+Two of the on/off calls deserve a closer look (`evaluation/identifiability_exp3.py`, which re-renders each test example with a pedal switched off to see whether it was audible at all):
+
+- **The noise gate is often physically invisible.** In 52% of the examples where it is on, its threshold sits below the noise floor, so it never closes and the output is identical to having it off. The model rightly hears those as "off", which caps what any model could score at 73% (270 of the 1,000 test examples have a gate that is on but inaudible). When the gate actually acts, the model gets it right 77.8% of the time, and 93.5% when it is off.
+- **The overdrive is the part the model genuinely cannot hear.** It changes the audio in 99% of the examples where it is on, yet the model is right only 37.9% of the time then (78.3% when it is off). A low-to-medium drive into an already distorting amp is mostly a level and gain change that the amp's own gain knob can reproduce, the same weakness seen in Experiment 2.
+
+### The optimization loop on the full rig
+
+`optimization/evaluate_optimization_exp3.py` runs the same CMA-ES loop with per-example seeds, with one refinement: it only searches the knobs that matter for the chain being rendered (knobs of a pedal that is off change nothing), which on average is 12 of the 18. Pedal states, amp, cabinet and microphone are either held at the CNN's calls ("fixed") or set to the true ones as a ceiling:
+
+| CNN trained on | CNN only | Fixed, 300 renders | True choices, 300 renders | Fixed, 1,800 renders | True choices, 1,800 renders |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| 300,000 examples | 0.407 | 0.730 | 0.737 | 0.856 | 0.886 |
+| **1,000,000 examples** | 0.394 | **0.737** | 0.739 | **0.864** | 0.891 |
+
+The 300-render columns cover all 1,000 test examples, the 1,800-render columns the same 200.
+
+- **The loop still works on the full rig**, lifting similarity from 0.39 to 0.74 at 300 renders and to 0.86 at 1,800; with the 1,000,000-example model every one of the 1,000 test examples improved. It needs more renders than Experiment 2 did (0.85 there at 300): a dozen active knobs is a much bigger space than eight.
+- **The sound gets matched much better than the knobs.** For the 1,000,000-example model, knob error only falls from 1.93 to 1.86 at 300 renders (and from 1.94 to 1.45 at 1,800 on the 200-example subset), while similarity more than doubles, which is the many-to-one mapping again.
+- **The gear calls start to matter once the knob search has enough budget.** Giving the loop the true pedal states and gear adds only +0.002 at 300 renders, where the knob search is the bottleneck, but +0.028 at 1,800 (95% interval +0.017 to +0.039). That is the same pattern as Experiment 2 before its amp search, so searching over pedal states and gear at high budgets is the natural next step for this rig.
+- **More data helps less here than in Experiment 2.** After optimization the 1,000,000-example model beats the 300,000-example one by +0.006 at 300 renders (interval +0.003 to +0.010) and +0.008 at 1,800 (interval -0.004 to +0.020, so not distinguishable from zero). In Experiment 2 the same step was also small (+0.005), but the earlier step from 8,000 to 300,000 examples was worth +0.040.
+
+---
+
 ## Repository Layout
 
 ```text
 audio/
-    synth/         synthetic DI guitar source generation
-    rendering/     Experiment 1's single virtual amp, plus Experiment 2's
+    synth/         synthetic DI guitar source generation (synth_phrase and
+                    add_noise_floor for Experiment 3)
+    rendering/     Experiment 1's single virtual amp, Experiment 2's
                     overdrive/amp/cabinet signal chain (amp_models.py,
-                    cabinets.py, chain_params.py, signal_chain.py)
+                    cabinets.py, chain_params.py, signal_chain.py), and
+                    Experiment 3's full Stage 2 rig (chain_spec.py, mics.py,
+                    signal_chain3.py)
     preprocessing/ wav I/O and normalization
     features/      log-mel spectrogram extraction
     similarity/    multi-resolution STFT audio similarity
 
 models/
-    tone_predictor/ audio -> parameters CNN (model.py) and the multi-head
-                    audio -> signal chain predictor (chain_model.py)
+    tone_predictor/ audio -> parameters CNN (model.py), the multi-head
+                    audio -> signal chain predictor (chain_model.py), and its
+                    spec-driven successor (multihead.py)
     checkpoints/    trained weights (not versioned)
 
 training/
     generate_dataset.py, generate_dataset_exp2.py   build a dataset from the renderer
-    generate_shards_exp2.py                          build a large train-only pool as feature shards
-    dataset.py, dataset_exp2.py, pool_exp2.py        torch Datasets / shard-pool batches
-    train.py, train_exp2.py                          training loops
-    evaluate.py, evaluate_exp2.py                    held-out test set milestone reports
+    generate_shards_exp2.py, generate_exp3.py        large datasets as feature shards
+    dataset.py, dataset_exp2.py, pool_exp2.py,
+    shards.py                                        torch Datasets / shard batches
+    train.py, train_exp2.py, train_exp3.py           training loops
+    evaluate.py, evaluate_exp2.py, evaluate_exp3.py  held-out test set milestone reports
+    exp3_common.py                                   Experiment 3 loss, decoding and metrics
 
 evaluation/     shared metrics, comparison plots, and README chart generation
-                (make_readme_charts.py for Experiment 1, _exp2 for Experiment 2,
-                _scaling for the training-data chart)
+                (make_readme_charts.py for Experiment 1, _exp2, _scaling and
+                _exp3), plus identifiability_exp3.py (which pedals are audible)
 optimization/   CMA-ES refinement of the CNN's predicted parameters
-                (evaluate_optimization.py / _exp2.py); for Experiment 2 the
-                discrete choices can be held fixed, searched (every amp is
-                tried, the best one refined), or set to the true ones as a
-                ceiling (--mode fixed / search / oracle)
+                (evaluate_optimization.py / _exp2.py / _exp3.py); for
+                Experiment 2 the discrete choices can be held fixed, searched
+                (every amp is tried, the best one refined), or set to the true
+                ones as a ceiling (--mode fixed / search / oracle)
 configs/        experiment configs
 data/           generated datasets (not versioned)
 ```
@@ -491,7 +586,26 @@ python -m optimization.evaluate_optimization_exp2 --config configs/experiment2_p
 python -m evaluation.make_readme_charts_scaling
 ```
 
-The optimization evaluator resumes from its last checkpoint (`*_partial.json`) if it is interrupted, so a long run can simply be restarted with the same command.
+### Running Experiment 3
+
+```bash
+# fixed 1,000-example test and validation sets (with audio), then the 1M training pool (about 12 GB)
+python -m training.generate_exp3 --split test --n-examples 1000 --keep-audio
+python -m training.generate_exp3 --split val --n-examples 1000 --keep-audio
+python -m training.generate_exp3 --split train --n-examples 1000000 --workers 3
+python -m training.train_exp3 --config configs/experiment3_1m.yaml --resume
+python -m training.evaluate_exp3 --config configs/experiment3_1m.yaml
+python -m evaluation.identifiability_exp3 --run exp3_1m
+python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode fixed --n-examples 1000
+python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode oracle --n-examples 1000
+python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode fixed --n-examples 200 --max-evals 1800 --tag b1800
+python -m optimization.evaluate_optimization_exp3 --config configs/experiment3_1m.yaml --mode oracle --n-examples 200 --max-evals 1800 --tag b1800
+python -m evaluation.make_readme_charts_exp3 --run exp3_1m
+```
+
+`configs/experiment3_300k.yaml` is the run without BatchNorm recalibration, kept as the evidence for that fix; `experiment3_300k_bnrecal.yaml` is the same run with it.
+
+The optimization evaluators and trainers resume from their last checkpoint if interrupted (`*_partial.json`, `--resume`), so a long run can simply be restarted with the same command.
 
 ---
 

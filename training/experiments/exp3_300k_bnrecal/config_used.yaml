@@ -1,0 +1,15 @@
+dataset:
+  data_root: data/generated/exp3
+  n_train: 300000
+  sr: 16000
+experiment_name: exp3_300k_bnrecal
+training:
+  audio_eval_every: 5
+  audio_eval_n_examples: 20
+  batch_size: 32
+  bn_recalibration_examples: 10240
+  epochs: 40
+  lr: 0.001
+  patience: 8
+  seed: 0
+  shards_per_block: 2
